@@ -9,7 +9,7 @@
 import UIKit
 
 
-private let highlightedAlpha: CGFloat = 0.499
+private let highlightedAlpha: CGFloat = 0.199
 private let disabledAlpha: CGFloat = 0.499
 private let overlayAlpha: CGFloat = 0.5
 
@@ -76,7 +76,6 @@ public class APButton: UIButton {
             let duration = isHighlighted ? 0.01 : 0.2
             let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction]
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
-                self.configureHighlight(isHighlighted: self.isHighlighted)
                 self.configureHighlightForDependentViews(isHighlighted: self.isHighlighted)
             }, completion: nil)
         }
@@ -180,8 +179,6 @@ public class APButton: UIButton {
     }
     
     public func setHighlight(_ highlight: Bool, ignoreDependentViews: Bool) {
-        configureHighlight(isHighlighted: highlight)
-        
         if !ignoreDependentViews {
             configureHighlightForDependentViews(isHighlighted: highlight)
         }
@@ -191,33 +188,24 @@ public class APButton: UIButton {
     // MARK: - Private Methods
     //-----------------------------------------------------------------------------
     
-    private func configureHighlight(isHighlighted: Bool) {
+    private func configureHighlightForDependentViews(isHighlighted: Bool) {
         if isUseHighlightedOverlay {
             let newAlpha = isHighlighted ? overlayAlpha : 0
             
             overlayView.alpha = newAlpha
         } else {
+            guard let dependentViews = dependentViews else { return }
+            
             let newAlpha = isHighlighted ? highlightedAlpha : 1
             let oldAlpha = isHighlighted ? 1 : highlightedAlpha
             
-            if isCGFloatsEqual(first: alpha, second: oldAlpha) {
-                alpha = newAlpha
-            }
-        }
-    }
-    
-    private func configureHighlightForDependentViews(isHighlighted: Bool) {
-        guard let dependentViews = dependentViews else { return }
-        
-        let newAlpha = isHighlighted ? highlightedAlpha : 1
-        let oldAlpha = isHighlighted ? 1 : highlightedAlpha
-        
-        for view in dependentViews {
-            if let button = view as? APButton {
-                button.setHighlight(isHighlighted, ignoreDependentViews: true)
-            } else {
-                if isCGFloatsEqual(first: view.alpha, second: oldAlpha) {
-                    view.alpha = newAlpha
+            for view in dependentViews {
+                if let button = view as? APButton {
+                    button.setHighlight(isHighlighted, ignoreDependentViews: true)
+                } else {
+                    if isCGFloatsEqual(first: view.alpha, second: oldAlpha) {
+                        view.alpha = newAlpha
+                    }
                 }
             }
         }
