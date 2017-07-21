@@ -102,11 +102,7 @@ public class APButton: UIButton {
         setup()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        setup()
-    }
+    required public init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
     private func setup() {
         adjustsImageWhenHighlighted = false
@@ -124,13 +120,19 @@ public class APButton: UIButton {
         let msk: UIViewAutoresizing = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
         activityIndicator.autoresizingMask = msk
         
-        enabledTitleColor = titleLabel?.textColor
+        enabledTitleColor = titleColor(for: .normal)
         enabledBorderColor = layer.borderColor
     }
     
     //-----------------------------------------------------------------------------
     // MARK: - UIView Methods
     //-----------------------------------------------------------------------------
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setup()
+    }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
