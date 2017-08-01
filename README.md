@@ -1,6 +1,6 @@
 # APButton
 
-[![CI Status](http://img.shields.io/travis/anton-plebanovich/APButton.svg?style=flat)](https://travis-ci.org/anton-plebanovich/APButton)
+[![CI Status](http://img.shields.io/travis/APUtils/APButton.svg?style=flat)](https://travis-ci.org/APUtils/APButton)
 [![Version](https://img.shields.io/cocoapods/v/APButton.svg?style=flat)](http://cocoapods.org/pods/APButton)
 [![License](https://img.shields.io/cocoapods/l/APButton.svg?style=flat)](http://cocoapods.org/pods/APButton)
 [![Platform](https://img.shields.io/cocoapods/p/APButton.svg?style=flat)](http://cocoapods.org/pods/APButton)
