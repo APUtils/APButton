@@ -11,7 +11,6 @@ import UIKit
 
 private let highlightedAlpha: CGFloat = 0.199
 private let disabledAlpha: CGFloat = 0.499
-private let overlayAlpha: CGFloat = 0.5
 
 //-----------------------------------------------------------------------------
 // MARK: - Helper Functions
@@ -42,8 +41,8 @@ public class APButton: UIButton {
     // MARK: - @IBInspectable
     //-----------------------------------------------------------------------------
     
-    /// Instead of dim all views put 0.5 white overlay above button
-    @IBInspectable public var isUseHighlightedOverlay: Bool = false
+    /// If overlay color isn't nil button won't dim depending views but instead show overlay.
+    @IBInspectable public var overlayColor: UIColor?
     
     /// Make button round
     @IBInspectable public var rounded: Bool = false
@@ -110,7 +109,7 @@ public class APButton: UIButton {
         addSubview(overlayView)
         overlayView.frame = bounds
         overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        overlayView.backgroundColor = UIColor.white
+        overlayView.backgroundColor = overlayColor
         overlayView.alpha = 0
         
         addSubview(activityIndicator)
@@ -191,10 +190,8 @@ public class APButton: UIButton {
     //-----------------------------------------------------------------------------
     
     private func configureHighlightForDependentViews(isHighlighted: Bool) {
-        if isUseHighlightedOverlay {
-            let newAlpha = isHighlighted ? overlayAlpha : 0
-            
-            overlayView.alpha = newAlpha
+        if overlayColor != nil {
+            overlayView.alpha = isHighlighted ? 1 : 0
         } else {
             guard let dependentViews = dependentViews else { return }
             
