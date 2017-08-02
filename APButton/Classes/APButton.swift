@@ -9,29 +9,13 @@
 import UIKit
 
 
-private let highlightedAlpha: CGFloat = 0.199
-private let disabledAlpha: CGFloat = 0.499
+let g_ButtonHighlightAlphaCoef: CGFloat = 0.2
 
-//-----------------------------------------------------------------------------
-// MARK: - Helper Functions
-//-----------------------------------------------------------------------------
-
-private func isCGFloatsEqual(first: CGFloat, second: CGFloat) -> Bool {
-    if abs(first - second) < 0.0001 {
-        return true
-    } else {
-        return false
-    }
-}
-
-//-----------------------------------------------------------------------------
-// MARK: - Class Implementation
-//-----------------------------------------------------------------------------
 
 public class APButton: UIButton {
     
     //-----------------------------------------------------------------------------
-    // MARK: - @IBOutlet
+    // MARK: - @IBOutlet UIButton
     //-----------------------------------------------------------------------------
     
     /// Dependet views to animate according to button state change
@@ -55,26 +39,24 @@ public class APButton: UIButton {
         didSet {
             guard oldValue != isEnabled else { return }
             
-            if isEnabled {
-                setTitleColor(enabledTitleColor, for: .normal)
-                layer.borderColor = enabledBorderColor
-            } else {
-                enabledTitleColor = titleColor(for: .normal)
-                enabledBorderColor = layer.borderColor
-                
-                setTitleColor(.lightGray, for: .normal)
-                layer.borderColor = UIColor.lightGray.cgColor
-            }
-            
             configureEnabledForDependentViews(isEnabled: isEnabled)
         }
     }
     
     override public var isHighlighted: Bool {
         didSet {
-            let duration = isHighlighted ? 0.01 : 0.2
-            let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction]
+            guard !activityIndicator.isAnimating && isHighlighted != oldValue else { return }
+            
+            let highightDuration = isTouchInside ? 0.0 : 0.3
+            let duration = isHighlighted ? highightDuration : 0.3
+            let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+                if self.buttonType == .custom {
+                    let newAlpha = self.isHighlighted ? g_ButtonHighlightAlphaCoef : 1
+                    self.imageView?.alpha = newAlpha
+                    self.titleLabel?.alpha = newAlpha
+                }
+                
                 self.configureHighlightForDependentViews(isHighlighted: self.isHighlighted)
             }, completion: nil)
         }
@@ -86,13 +68,10 @@ public class APButton: UIButton {
     
     private var animatingViewsOriginalAlphas = [UIView: CGFloat]()
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    private var buttonImage: UIImage?
     private let overlayView = UIView()
-    private var enabledTitleColor: UIColor?
-    private var enabledBorderColor: CGColor?
     
     //-----------------------------------------------------------------------------
-    // MARK: - Initialization, Setup and Configuration
+    // MARK: - Initialization and Setup
     //-----------------------------------------------------------------------------
     
     public init() {
@@ -103,6 +82,12 @@ public class APButton: UIButton {
     
     required public init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setup()
+    }
+    
     private func setup() {
         adjustsImageWhenHighlighted = false
         
@@ -111,6 +96,7 @@ public class APButton: UIButton {
         overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         overlayView.backgroundColor = overlayColor
         overlayView.alpha = 0
+        overlayView.isUserInteractionEnabled = false
         
         addSubview(activityIndicator)
         activityIndicator.isHidden = true
@@ -119,19 +105,50 @@ public class APButton: UIButton {
         let msk: UIViewAutoresizing = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
         activityIndicator.autoresizingMask = msk
         
-        enabledTitleColor = titleColor(for: .normal)
-        enabledBorderColor = layer.borderColor
+        configureDisabledColor()
+        configureEnabledForDependentViews(isEnabled: isEnabled)
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Configuration
+    //-----------------------------------------------------------------------------
+    
+    private func configureDisabledColor() {
+        dependentViews?
+            .flatMap({ $0 as? UILabel })
+            .filter({ $0.textColor == titleColor(for: .normal) })
+            .forEach({
+                guard let disabledTextColor = titleColor(for: .disabled) else { return }
+                
+                $0.ap_disabledTextColor = disabledTextColor
+            })
+    }
+    
+    private func configureHighlightForDependentViews(isHighlighted: Bool) {
+        if overlayColor != nil {
+            overlayView.alpha = isHighlighted ? 1 : 0
+        } else {
+            guard let dependentViews = dependentViews else { return }
+            
+            for view in dependentViews {
+                if let button = view as? APButton {
+                    button.setHighlight(isHighlighted, ignoreDependentViews: true)
+                } else {
+                    view.ap_highlighted = isHighlighted
+                }
+            }
+        }
+    }
+    
+    private func configureEnabledForDependentViews(isEnabled: Bool) {
+        guard let dependentViews = dependentViews else { return }
+        
+        dependentViews.flatMap({ $0 as? UILabel }).forEach({ $0.ap_disabled = !isEnabled })
     }
     
     //-----------------------------------------------------------------------------
     // MARK: - UIView Methods
     //-----------------------------------------------------------------------------
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setup()
-    }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
@@ -139,6 +156,18 @@ public class APButton: UIButton {
         if rounded {
             layer.cornerRadius = min(bounds.size.width, bounds.size.height) / 2
         }
+        
+        overlayView.layer.cornerRadius = layer.cornerRadius
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - UIButton Methods
+    //-----------------------------------------------------------------------------
+    
+    public override func setTitleColor(_ color: UIColor?, for state: UIControlState) {
+        super.setTitleColor(color, for: state)
+        
+        configureDisabledColor()
     }
     
     //-----------------------------------------------------------------------------
@@ -157,9 +186,8 @@ public class APButton: UIButton {
             }
         }
         
-        buttonImage = imageView?.image
-        setImage(nil, for: UIControlState())
         titleLabel?.alpha = 0
+        imageView?.alpha = 0
         activityIndicator.startAnimating()
     }
     
@@ -169,57 +197,19 @@ public class APButton: UIButton {
         }
         animatingViewsOriginalAlphas = [:]
         
-        if let buttonImage = buttonImage {
-            setImage(buttonImage, for: UIControlState())
-            self.buttonImage = nil
-        }
         titleLabel?.alpha = 1
-        
+        imageView?.alpha = 1
         activityIndicator.stopAnimating()
         isUserInteractionEnabled = true
-    }
-    
-    public func setHighlight(_ highlight: Bool, ignoreDependentViews: Bool) {
-        if !ignoreDependentViews {
-            configureHighlightForDependentViews(isHighlighted: highlight)
-        }
     }
     
     //-----------------------------------------------------------------------------
     // MARK: - Private Methods
     //-----------------------------------------------------------------------------
     
-    private func configureHighlightForDependentViews(isHighlighted: Bool) {
-        if overlayColor != nil {
-            overlayView.alpha = isHighlighted ? 1 : 0
-        } else {
-            guard let dependentViews = dependentViews else { return }
-            
-            let newAlpha = isHighlighted ? highlightedAlpha : 1
-            let oldAlpha = isHighlighted ? 1 : highlightedAlpha
-            
-            for view in dependentViews {
-                if let button = view as? APButton {
-                    button.setHighlight(isHighlighted, ignoreDependentViews: true)
-                } else {
-                    if isCGFloatsEqual(first: view.alpha, second: oldAlpha) {
-                        view.alpha = newAlpha
-                    }
-                }
-            }
-        }
-    }
-    
-    private func configureEnabledForDependentViews(isEnabled: Bool) {
-        guard let dependentViews = dependentViews else { return }
-        
-        let newAlpha = isEnabled ? 1 : disabledAlpha
-        let oldAlpha = isEnabled ? disabledAlpha : 1
-        
-        for view in dependentViews {
-            if isCGFloatsEqual(first: view.alpha, second: oldAlpha) {
-                view.alpha = newAlpha
-            }
+    private func setHighlight(_ highlight: Bool, ignoreDependentViews: Bool) {
+        if !ignoreDependentViews {
+            configureHighlightForDependentViews(isHighlighted: highlight)
         }
     }
 }

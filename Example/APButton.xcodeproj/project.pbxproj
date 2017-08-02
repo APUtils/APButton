@@ -15,6 +15,14 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6B1E3EC635CA8FF3698B20F4 /* Pods_APButton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67ECC0239691D9EAEC19E114 /* Pods_APButton_Example.framework */; };
+		B06FD1371F32441500FB968F /* podInstall.command in Resources */ = {isa = PBXBuildFile; fileRef = B06FD1361F32441500FB968F /* podInstall.command */; };
+		B06FD13A1F32462000FB968F /* activity.gif in Resources */ = {isa = PBXBuildFile; fileRef = B06FD1381F32462000FB968F /* activity.gif */; };
+		B06FD13B1F32462000FB968F /* clicks.gif in Resources */ = {isa = PBXBuildFile; fileRef = B06FD1391F32462000FB968F /* clicks.gif */; };
+		B06FD13D1F32491000FB968F /* customClass.png in Resources */ = {isa = PBXBuildFile; fileRef = B06FD13C1F32491000FB968F /* customClass.png */; };
+		B06FD13F1F324B7A00FB968F /* dependent.png in Resources */ = {isa = PBXBuildFile; fileRef = B06FD13E1F324B7A00FB968F /* dependent.png */; };
+		B06FD1411F32518800FB968F /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = B06FD1401F32518800FB968F /* default.png */; };
+		B06FD1431F3251AE00FB968F /* disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = B06FD1421F3251AE00FB968F /* disabled.png */; };
+		B06FD1451F32520700FB968F /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = B06FD1441F32520700FB968F /* options.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,12 +37,12 @@
 
 /* Begin PBXFileReference section */
 		0A8EFF8B8373161D9655E022 /* Pods-APButton_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APButton_Tests/Pods-APButton_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		0E6DA7D3EA621D715E20C314 /* .cocoadocs.yml */ = {isa = PBXFileReference; includeInIndex = 1; name = .cocoadocs.yml; path = ../.cocoadocs.yml; sourceTree = "<group>"; };
-		1FC67B7BE4E7AF6D9F4E8BDC /* APButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = APButton.podspec; path = ../APButton.podspec; sourceTree = "<group>"; };
-		428B1674F6BC3926191504C3 /* podCheck.command */ = {isa = PBXFileReference; includeInIndex = 1; name = podCheck.command; path = ../podCheck.command; sourceTree = "<group>"; };
-		46A75BEFD59CD5DDC1AB17E7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		49B196600D5116B1C3C6B23B /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
-		4A963336C435A32AE75BF7D5 /* podPush.command */ = {isa = PBXFileReference; includeInIndex = 1; name = podPush.command; path = ../podPush.command; sourceTree = "<group>"; };
+		0E6DA7D3EA621D715E20C314 /* .cocoadocs.yml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = .cocoadocs.yml; path = ../.cocoadocs.yml; sourceTree = "<group>"; };
+		1FC67B7BE4E7AF6D9F4E8BDC /* APButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = APButton.podspec; path = ../APButton.podspec; sourceTree = "<group>"; };
+		428B1674F6BC3926191504C3 /* podCheck.command */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = podCheck.command; path = ../podCheck.command; sourceTree = "<group>"; };
+		46A75BEFD59CD5DDC1AB17E7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		49B196600D5116B1C3C6B23B /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		4A963336C435A32AE75BF7D5 /* podPush.command */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = podPush.command; path = ../podPush.command; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* APButton_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APButton_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,13 +54,21 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		67ECC0239691D9EAEC19E114 /* Pods_APButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		986F08A012BBF77B661F3F7C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		986F08A012BBF77B661F3F7C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AFBAE09DA1FA64677E5E6F55 /* Pods-APButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APButton_Example/Pods-APButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B06FD1361F32441500FB968F /* podInstall.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = podInstall.command; sourceTree = "<group>"; };
+		B06FD1381F32462000FB968F /* activity.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = activity.gif; sourceTree = "<group>"; };
+		B06FD1391F32462000FB968F /* clicks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clicks.gif; sourceTree = "<group>"; };
+		B06FD13C1F32491000FB968F /* customClass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customClass.png; sourceTree = "<group>"; };
+		B06FD13E1F324B7A00FB968F /* dependent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dependent.png; sourceTree = "<group>"; };
+		B06FD1401F32518800FB968F /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		B06FD1421F3251AE00FB968F /* disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disabled.png; sourceTree = "<group>"; };
+		B06FD1441F32520700FB968F /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options.png; sourceTree = "<group>"; };
 		D4686D988BD388BB20C0C9F0 /* Pods-APButton_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APButton_Tests/Pods-APButton_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E5814400D780A46756590832 /* CHANGELOG.md */ = {isa = PBXFileReference; includeInIndex = 1; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		E5814400D780A46756590832 /* CHANGELOG.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		EF3DE742A2FF65CB5B4D2C58 /* Pods-APButton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-APButton_Example/Pods-APButton_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F3B7BF67B6F4B424675A739C /* Pods_APButton_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APButton_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3CF3B56A69613DC4D0FBB0E /* .travis.yml */ = {isa = PBXFileReference; includeInIndex = 1; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		F3CF3B56A69613DC4D0FBB0E /* .travis.yml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,10 +170,11 @@
 				0E6DA7D3EA621D715E20C314 /* .cocoadocs.yml */,
 				49B196600D5116B1C3C6B23B /* .gitignore */,
 				F3CF3B56A69613DC4D0FBB0E /* .travis.yml */,
-				E5814400D780A46756590832 /* CHANGELOG.md */,
 				1FC67B7BE4E7AF6D9F4E8BDC /* APButton.podspec */,
+				E5814400D780A46756590832 /* CHANGELOG.md */,
 				46A75BEFD59CD5DDC1AB17E7 /* LICENSE */,
 				428B1674F6BC3926191504C3 /* podCheck.command */,
+				B06FD1361F32441500FB968F /* podInstall.command */,
 				4A963336C435A32AE75BF7D5 /* podPush.command */,
 				986F08A012BBF77B661F3F7C /* README.md */,
 			);
@@ -167,6 +184,11 @@
 		B06688E41F13EAB300A02878 /* _Images */ = {
 			isa = PBXGroup;
 			children = (
+				B06FD13C1F32491000FB968F /* customClass.png */,
+				B06FD1401F32518800FB968F /* default.png */,
+				B06FD13E1F324B7A00FB968F /* dependent.png */,
+				B06FD1421F3251AE00FB968F /* disabled.png */,
+				B06FD1441F32520700FB968F /* options.png */,
 			);
 			name = _Images;
 			sourceTree = "<group>";
@@ -174,6 +196,8 @@
 		B06688E51F13EAB800A02878 /* _Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				B06FD1381F32462000FB968F /* activity.gif */,
+				B06FD1391F32462000FB968F /* clicks.gif */,
 			);
 			name = _Gifs;
 			sourceTree = "<group>";
@@ -277,8 +301,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				B06FD1371F32441500FB968F /* podInstall.command in Resources */,
+				B06FD13A1F32462000FB968F /* activity.gif in Resources */,
+				B06FD1431F3251AE00FB968F /* disabled.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				B06FD13D1F32491000FB968F /* customClass.png in Resources */,
+				B06FD13B1F32462000FB968F /* clicks.gif in Resources */,
+				B06FD13F1F324B7A00FB968F /* dependent.png in Resources */,
+				B06FD1451F32520700FB968F /* options.png in Resources */,
+				B06FD1411F32518800FB968F /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
