@@ -4,6 +4,9 @@ platform :ios, '8.0'
 # Add pods as frameworks so we could add obj-c and swift 3.0 pods
 use_frameworks!
 
+install! 'cocoapods',
+    :share_schemes_for_development_pods => true
+
 
 target 'APButton_Example' do
     pod 'APButton', :path => '../'
