@@ -12,7 +12,7 @@ import UIKit
 private var defaultAlphaAssociationKey = 0
 
 
-extension UIView {
+internal extension UIView {
     private var defaultAlpha: CGFloat? {
         get {
             return objc_getAssociatedObject(self, &defaultAlphaAssociationKey) as? CGFloat

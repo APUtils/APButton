@@ -14,7 +14,7 @@ private var disabledTextColorAssociationKey = 0
 private var disabledAssociationKey = 0
 
 
-extension UILabel {
+internal extension UILabel {
     private var defaultTextColor: UIColor! {
         get {
             return objc_getAssociatedObject(self, &defaultTextColorAssociationKey) as? UIColor ?? textColor
