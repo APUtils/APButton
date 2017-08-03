@@ -47,10 +47,7 @@ public class APButton: UIButton {
         didSet {
             guard !activityIndicator.isAnimating && isHighlighted != oldValue else { return }
             
-            let highightDuration = isTouchInside ? 0.0 : 0.3
-            let duration = isHighlighted ? highightDuration : 0.3
-            let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
-            UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+            let changes: () -> () = {
                 if self.buttonType == .custom {
                     let newAlpha = self.isHighlighted ? g_ButtonHighlightAlphaCoef : 1
                     self.imageView?.alpha = newAlpha
@@ -58,7 +55,18 @@ public class APButton: UIButton {
                 }
                 
                 self.configureHighlightForDependentViews(isHighlighted: self.isHighlighted)
-            }, completion: nil)
+            }
+            
+            let highightDuration = isTouchInside ? 0.0 : 0.3
+            let duration = isHighlighted ? highightDuration : 0.3
+            let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
+            if UIView.areAnimationsEnabled {
+                UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+                    changes()
+                }, completion: nil)
+            } else {
+                changes()
+            }
         }
     }
     
@@ -186,8 +194,17 @@ public class APButton: UIButton {
             }
         }
         
-        titleLabel?.alpha = 0
-        imageView?.alpha = 0
+        let changes: () -> () = {
+            self.titleLabel?.alpha = 0
+            self.imageView?.alpha = 0
+        }
+        
+        if self.buttonType == .system {
+            DispatchQueue.main.async { changes() }
+        } else {
+            changes()
+        }
+        
         activityIndicator.startAnimating()
     }
     
