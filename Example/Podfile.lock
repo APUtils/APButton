@@ -1,5 +1,5 @@
 PODS:
-  - APButton (3.0.1)
+  - APButton (3.1.1)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
@@ -25,12 +25,12 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  APButton: a7a7a230a9908fa7036471f1f09ed3e8237d9773
+  APButton: 924e7b016faa30cf415a703845550ebd1e91f087
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Nimble-Snapshots: 31c8ef7fcebf0e68b4dff83f6e2160813a4a116b
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
-PODFILE CHECKSUM: dcc0485a6afd83b0340667b69821078c8a2bb13d
+PODFILE CHECKSUM: 4b72ec9d1c42d03fe1ca337380f3bde2a9747f53
 
 COCOAPODS: 1.3.1
