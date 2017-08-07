@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 
 let g_ButtonHighlightAlphaCoef: CGFloat = 0.2
@@ -39,7 +40,7 @@ public class APButton: UIButton {
         didSet {
             guard oldValue != isEnabled else { return }
             
-            configureEnabledForDependentViews(isEnabled: isEnabled)
+            configureEnabled()
         }
     }
     
@@ -54,13 +55,17 @@ public class APButton: UIButton {
                     self.titleLabel?.alpha = newAlpha
                 }
                 
-                self.configureHighlightForDependentViews(isHighlighted: self.isHighlighted)
+                if self.overlayColor != nil {
+                    self.overlayView.alpha = self.isHighlighted ? 1 : 0
+                } else {
+                    self.configureHighlight()
+                }
             }
             
-            let highightDuration = isTouchInside ? 0.0 : 0.3
-            let duration = isHighlighted ? highightDuration : 0.3
-            let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
             if UIView.areAnimationsEnabled {
+                let highightDuration = isTouchInside ? 0.0 : 0.3
+                let duration = isHighlighted ? highightDuration : 0.3
+                let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
                 UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                     changes()
                 }, completion: nil)
@@ -74,9 +79,12 @@ public class APButton: UIButton {
     // MARK: - Private Properties
     //-----------------------------------------------------------------------------
     
+    private var _dependentViews = NSHashTable<UIView>(options: [.weakMemory])
     private var animatingViewsOriginalAlphas = [UIView: CGFloat]()
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     private let overlayView = UIView()
+    private var defaultBorderColor: CGColor?
+    private var isMadeBorderDisabled = false
     
     //-----------------------------------------------------------------------------
     // MARK: - Initialization and Setup
@@ -97,6 +105,9 @@ public class APButton: UIButton {
     }
     
     private func setup() {
+        dependentViews?.forEach({ _dependentViews.add($0) })
+        dependentViews = nil
+        
         adjustsImageWhenHighlighted = false
         
         addSubview(overlayView)
@@ -114,15 +125,45 @@ public class APButton: UIButton {
         activityIndicator.autoresizingMask = msk
         
         configureDisabledColor()
-        configureEnabledForDependentViews(isEnabled: isEnabled)
+        configureEnabled()
+        configureHighlight()
     }
     
     //-----------------------------------------------------------------------------
-    // MARK: - Configuration
+    // MARK: - Configuration - Highlight
+    //-----------------------------------------------------------------------------
+    
+    private func configureHighlight() {
+        configureHighlightForBorder()
+        configureHighlightForDependentViews()
+    }
+    
+    private func configureHighlightForBorder() {
+        if isHighlighted {
+            // Change border color animated
+            let oldColor = layer.borderColor
+            defaultBorderColor = oldColor
+            let newAlpha = (oldColor?.alpha ?? 1) * g_ButtonHighlightAlphaCoef
+            let newColor = oldColor?.copy(alpha: newAlpha)
+            setBorderColor(newColor, animated: UIView.areAnimationsEnabled)
+        } else {
+            if let defaultBorderColor = defaultBorderColor {
+                setBorderColor(defaultBorderColor, animated: UIView.areAnimationsEnabled)
+                self.defaultBorderColor = nil
+            }
+        }
+    }
+    
+    private func configureHighlightForDependentViews() {
+        _dependentViews.allObjects.forEach({ $0.ap_highlighted = isHighlighted })
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Configuration - Enabled/Disabled
     //-----------------------------------------------------------------------------
     
     private func configureDisabledColor() {
-        dependentViews?
+        _dependentViews.allObjects
             .flatMap({ $0 as? UILabel })
             .filter({ $0.textColor == titleColor(for: .normal) })
             .forEach({
@@ -132,26 +173,28 @@ public class APButton: UIButton {
             })
     }
     
-    private func configureHighlightForDependentViews(isHighlighted: Bool) {
-        if overlayColor != nil {
-            overlayView.alpha = isHighlighted ? 1 : 0
+    private func configureEnabled() {
+        configureEnabledForBorder()
+        configureEnabledForDependentViews()
+    }
+    
+    private func configureEnabledForBorder() {
+        if isEnabled {
+            if isMadeBorderDisabled {
+                layer.borderColor = titleColor(for: .normal)?.cgColor
+                isMadeBorderDisabled = false
+            }
         } else {
-            guard let dependentViews = dependentViews else { return }
-            
-            for view in dependentViews {
-                if let button = view as? APButton {
-                    button.setHighlight(isHighlighted, ignoreDependentViews: true)
-                } else {
-                    view.ap_highlighted = isHighlighted
-                }
+            let titleNormalColor = titleColor(for: .normal)?.cgColor
+            if layer.borderColor == titleNormalColor {
+                layer.borderColor = titleColor(for: .disabled)?.cgColor
+                isMadeBorderDisabled = true
             }
         }
     }
     
-    private func configureEnabledForDependentViews(isEnabled: Bool) {
-        guard let dependentViews = dependentViews else { return }
-        
-        dependentViews.flatMap({ $0 as? UILabel }).forEach({ $0.ap_disabled = !isEnabled })
+    private func configureEnabledForDependentViews() {
+        _dependentViews.allObjects.flatMap({ $0 as? UILabel }).forEach({ $0.ap_disabled = !isEnabled })
     }
     
     //-----------------------------------------------------------------------------
@@ -186,13 +229,11 @@ public class APButton: UIButton {
         isUserInteractionEnabled = false
         isHighlighted = false
         
-        if let dependentViews = dependentViews {
-            animatingViewsOriginalAlphas = [:]
-            for view in dependentViews {
-                animatingViewsOriginalAlphas[view] = view.alpha
-                view.alpha = 0
-            }
-        }
+        animatingViewsOriginalAlphas = [:]
+        _dependentViews.allObjects.forEach({
+            animatingViewsOriginalAlphas[$0] = $0.alpha
+            $0.alpha = 0
+        })
         
         let changes: () -> () = {
             self.titleLabel?.alpha = 0
@@ -224,9 +265,26 @@ public class APButton: UIButton {
     // MARK: - Private Methods
     //-----------------------------------------------------------------------------
     
-    private func setHighlight(_ highlight: Bool, ignoreDependentViews: Bool) {
-        if !ignoreDependentViews {
-            configureHighlightForDependentViews(isHighlighted: highlight)
+    private func setBorderColor(_ color: CGColor?, animated: Bool) {
+        layer.removeAnimation(forKey: "borderColorAnimation")
+        
+        let duration: TimeInterval
+        if #available(iOS 9.0, *) {
+            duration = UIView.inheritedAnimationDuration
+        } else {
+            duration = CATransaction.animationDuration()
         }
+        
+        if animated && duration > 0 {
+            let animation = CABasicAnimation(keyPath: "borderColor")
+            animation.fromValue = layer.borderColor
+            animation.toValue = color
+            animation.duration = duration
+            animation.timingFunction = CATransaction.animationTimingFunction()
+            
+            layer.add(animation, forKey: "borderColorAnimation")
+        }
+        
+        layer.borderColor = color
     }
 }
