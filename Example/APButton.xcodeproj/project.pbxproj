@@ -350,10 +350,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-APButton_Example/Pods-APButton_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APButton/APButton.framework",
+				"${BUILT_PRODUCTS_DIR}/APExtensions/APExtensions.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APExtensions.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

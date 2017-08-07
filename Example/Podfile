@@ -11,6 +11,7 @@ install! 'cocoapods',
 
 target 'APButton_Example' do
     pod 'APButton', :path => '../'
+    pod 'APExtensions'
 
     target 'APButton_Tests' do
         inherit! :search_paths
