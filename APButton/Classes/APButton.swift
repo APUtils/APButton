@@ -48,7 +48,7 @@ public class APButton: UIButton {
         didSet {
             guard !activityIndicator.isAnimating && isHighlighted != oldValue else { return }
             
-            let changes: () -> () = {
+            let changes: (_ animated: Bool) -> () = { animated in
                 if self.buttonType == .custom {
                     let newAlpha = self.isHighlighted ? g_ButtonHighlightAlphaCoef : 1
                     self.imageView?.alpha = newAlpha
@@ -58,19 +58,24 @@ public class APButton: UIButton {
                 if self.overlayColor != nil {
                     self.overlayView.alpha = self.isHighlighted ? 1 : 0
                 } else {
-                    self.configureHighlight()
+                    self.configureHighlight(animated: animated)
                 }
             }
             
             if UIView.areAnimationsEnabled {
                 let highightDuration = isTouchInside ? 0.0 : 0.3
                 let duration = isHighlighted ? highightDuration : 0.3
-                let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
-                UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
-                    changes()
-                }, completion: nil)
+                
+                if duration > 0 {
+                    let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
+                    UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+                        changes(true)
+                    }, completion: nil)
+                } else {
+                    changes(false)
+                }
             } else {
-                changes()
+                changes(false)
             }
         }
     }
@@ -126,26 +131,26 @@ public class APButton: UIButton {
         
         configureDisabledColor()
         configureEnabled()
-        configureHighlight()
+        configureHighlight(animated: false)
     }
     
     //-----------------------------------------------------------------------------
     // MARK: - Configuration - Highlight
     //-----------------------------------------------------------------------------
     
-    private func configureHighlight() {
-        configureHighlightForBorder()
+    private func configureHighlight(animated: Bool) {
+        configureHighlightForBorder(animated: animated)
         configureHighlightForDependentViews()
     }
     
-    private func configureHighlightForBorder() {
+    private func configureHighlightForBorder(animated: Bool) {
         if isHighlighted {
             // Change border color animated
             let oldColor = layer.borderColor
             defaultBorderColor = oldColor
             let newAlpha = (oldColor?.alpha ?? 1) * g_ButtonHighlightAlphaCoef
             let newColor = oldColor?.copy(alpha: newAlpha)
-            setBorderColor(newColor, animated: UIView.areAnimationsEnabled)
+            setBorderColor(newColor, animated: animated)
         } else {
             if let defaultBorderColor = defaultBorderColor {
                 setBorderColor(defaultBorderColor, animated: UIView.areAnimationsEnabled)
@@ -268,18 +273,11 @@ public class APButton: UIButton {
     private func setBorderColor(_ color: CGColor?, animated: Bool) {
         layer.removeAnimation(forKey: "borderColorAnimation")
         
-        let duration: TimeInterval
-        if #available(iOS 9.0, *) {
-            duration = UIView.inheritedAnimationDuration
-        } else {
-            duration = CATransaction.animationDuration()
-        }
-        
-        if animated && duration > 0 {
+        if animated {
             let animation = CABasicAnimation(keyPath: "borderColor")
             animation.fromValue = layer.borderColor
             animation.toValue = color
-            animation.duration = duration
+            animation.duration = 0 // Inherit main animation duration
             animation.timingFunction = CATransaction.animationTimingFunction()
             
             layer.add(animation, forKey: "borderColorAnimation")
