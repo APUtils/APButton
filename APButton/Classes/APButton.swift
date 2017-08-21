@@ -245,7 +245,9 @@ public class APButton: UIButton {
             self.imageView?.alpha = 0
         }
         
-        if self.buttonType == .system {
+        titleLabel?.layer.removeAllAnimations()
+        imageView?.layer.removeAllAnimations()
+        if buttonType == .system {
             DispatchQueue.main.async { changes() }
         } else {
             changes()
