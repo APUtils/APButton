@@ -13,6 +13,7 @@ import QuartzCore
 let g_ButtonHighlightAlphaCoef: CGFloat = 0.2
 
 
+// TODO: Add accessibility support by grouping info from dependent views (mostly labels i guess).
 public class APButton: UIButton {
     
     //-----------------------------------------------------------------------------
