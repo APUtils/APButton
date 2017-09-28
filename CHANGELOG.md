@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.2](https://github.com/APUtils/APButton/releases/tag/4.0.2)
+Released on 09/28/2017.
+
+#### Fixed
+- Immediate -stopAnimating() fix
+
+
 ## [4.0.1](https://github.com/APUtils/APButton/releases/tag/4.0.1)
 Released on 09/21/2017.
 

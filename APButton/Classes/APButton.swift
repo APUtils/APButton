@@ -263,8 +263,19 @@ public class APButton: UIButton {
         }
         animatingViewsOriginalAlphas = [:]
         
-        titleLabel?.alpha = 1
-        imageView?.alpha = 1
+        let changes: () -> () = {
+            self.titleLabel?.alpha = 1
+            self.imageView?.alpha = 1
+        }
+        
+        titleLabel?.layer.removeAllAnimations()
+        imageView?.layer.removeAllAnimations()
+        if buttonType == .system {
+            DispatchQueue.main.async { changes() }
+        } else {
+            changes()
+        }
+        
         activityIndicator.stopAnimating()
         isUserInteractionEnabled = true
     }
