@@ -155,6 +155,7 @@
 		AEC1DE29833131C8E6808E78ED9BA83A /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9ECEEC59DB0AF382127251C12BEDB86 /* String+Utils.swift */; };
 		AED58B976AB8F62FBFB0DA437861E088 /* PrettyDynamicTypeSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1FFD1D7BC75B713C0E7BAD43739FDF /* PrettyDynamicTypeSyntax.swift */; };
 		AF1174085D9BC5D50FCE0480E9C2BE94 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465812EC4275B1C26A0DB068AF609EF2 /* BeGreaterThan.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		B008B2921F84CC2800541EFC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008B2911F84CC2800541EFC /* Utils.swift */; };
 		B102ABE4E54B71B3D2C2118E2782FAB9 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74162A085242E4754F78456A0C0C004B /* BeLessThan.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		B27DFD6025D94758785918F1D6F6C060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD19B5214DB21F867B1E94107B7FB761 /* QuartzCore.framework */; };
 		B2C151B20635A480E1937E3D2B509BB4 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA0AC4E0D71D80333B14B5A13FCC4C5 /* Async.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -447,6 +448,7 @@
 		AE434630E80B2401A9455CC253272140 /* QCKDSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QCKDSL.m; path = Sources/QuickObjectiveC/DSL/QCKDSL.m; sourceTree = "<group>"; };
 		AE50EC1276849C02539758976470ADBF /* UIApplication+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+Utils.swift"; path = "APExtensions/Classes/_Extensions/Utils/UIApplication+Utils.swift"; sourceTree = "<group>"; };
 		AE5B261B9AD4F5E6D8785BC753BB03EE /* UIViewController+Swizzling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Swizzling.swift"; path = "APExtensions/Classes/_Extensions/Swizzling/UIViewController+Swizzling.swift"; sourceTree = "<group>"; };
+		B008B2911F84CC2800541EFC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = APButton/Classes/Utils.swift; sourceTree = "<group>"; };
 		B0A3CE6926E1379D0100D57BB1D616B5 /* Pods-APButton_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-APButton_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		B16C575C1953756517887DE99294FAD2 /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
 		B249BEB71DAE3D15AE87CAE6EE93152E /* Describable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Describable.swift; path = APExtensions/Classes/_Protocols/Describable.swift; sourceTree = "<group>"; };
@@ -964,6 +966,7 @@
 				4CE68457B83431F6B94DE83A99311C7C /* APButton.swift */,
 				687D719DE2756125BC296A1D17CB8052 /* UILabel+APButton.swift */,
 				A80D838A98B2AE26957278313C4DCF2F /* UIView+APButton.swift */,
+				B008B2911F84CC2800541EFC /* Utils.swift */,
 				E8D08D7A4FCD8B1964632CFE7E41CDB0 /* Support Files */,
 			);
 			name = APButton;
@@ -1422,6 +1425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B008B2921F84CC2800541EFC /* Utils.swift in Sources */,
 				BB53C851CB74CBB71CB0FB52C8952B27 /* APButton-dummy.m in Sources */,
 				0D8A3E1BBDEB0082C3927D38EDF31A1A /* APButton.swift in Sources */,
 				C14002D4F035BF4CD4F4427BA6C1DD94 /* UILabel+APButton.swift in Sources */,

@@ -232,52 +232,56 @@ public class APButton: UIButton {
     //-----------------------------------------------------------------------------
     
     public func startAnimating() {
-        isUserInteractionEnabled = false
-        isHighlighted = false
-        
-        animatingViewsOriginalAlphas = [:]
-        _dependentViews.allObjects.forEach({
-            animatingViewsOriginalAlphas[$0] = $0.alpha
-            $0.alpha = 0
-        })
-        
-        let changes: () -> () = {
-            self.titleLabel?.alpha = 0
-            self.imageView?.alpha = 0
+        _g_performInMain {
+            self.isUserInteractionEnabled = false
+            self.isHighlighted = false
+            
+            self.animatingViewsOriginalAlphas = [:]
+            self._dependentViews.allObjects.forEach({
+                self.animatingViewsOriginalAlphas[$0] = $0.alpha
+                $0.alpha = 0
+            })
+            
+            let changes: () -> () = {
+                self.titleLabel?.alpha = 0
+                self.imageView?.alpha = 0
+            }
+            
+            self.titleLabel?.layer.removeAllAnimations()
+            self.imageView?.layer.removeAllAnimations()
+            if self.buttonType == .system {
+                DispatchQueue.main.async { changes() }
+            } else {
+                changes()
+            }
+            
+            self.activityIndicator.startAnimating()
         }
-        
-        titleLabel?.layer.removeAllAnimations()
-        imageView?.layer.removeAllAnimations()
-        if buttonType == .system {
-            DispatchQueue.main.async { changes() }
-        } else {
-            changes()
-        }
-        
-        activityIndicator.startAnimating()
     }
     
     public func stopAnimating() {
-        for (view, alpha) in animatingViewsOriginalAlphas {
-            view.alpha = alpha
+        _g_performInMain {
+            for (view, alpha) in self.animatingViewsOriginalAlphas {
+                view.alpha = alpha
+            }
+            self.animatingViewsOriginalAlphas = [:]
+            
+            let changes: () -> () = {
+                self.titleLabel?.alpha = 1
+                self.imageView?.alpha = 1
+            }
+            
+            self.titleLabel?.layer.removeAllAnimations()
+            self.imageView?.layer.removeAllAnimations()
+            if self.buttonType == .system {
+                DispatchQueue.main.async { changes() }
+            } else {
+                changes()
+            }
+            
+            self.activityIndicator.stopAnimating()
+            self.isUserInteractionEnabled = true
         }
-        animatingViewsOriginalAlphas = [:]
-        
-        let changes: () -> () = {
-            self.titleLabel?.alpha = 1
-            self.imageView?.alpha = 1
-        }
-        
-        titleLabel?.layer.removeAllAnimations()
-        imageView?.layer.removeAllAnimations()
-        if buttonType == .system {
-            DispatchQueue.main.async { changes() }
-        } else {
-            changes()
-        }
-        
-        activityIndicator.stopAnimating()
-        isUserInteractionEnabled = true
     }
     
     //-----------------------------------------------------------------------------

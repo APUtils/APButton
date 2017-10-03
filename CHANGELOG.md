@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.3](https://github.com/APUtils/APButton/releases/tag/4.0.3)
+Released on 10/04/2017.
+
+#### Fixed
+- Start and stop should be executed only in main thread fix
+
+
 ## [4.0.2](https://github.com/APUtils/APButton/releases/tag/4.0.2)
 Released on 09/28/2017.
 
@@ -22,7 +29,7 @@ Released on 09/21/2017.
 Swift 4 migration
 
 
-## [3.1.1](https://github.com/APUtils/APButton/releases/tag/3.1.1)
+## [3.1.2](https://github.com/APUtils/APButton/releases/tag/3.1.2)
 Released on 08/07/2017.
 
 #### Fixed
