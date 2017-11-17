@@ -345,6 +345,7 @@ public class APButton: UIButton {
             
             self.activityIndicator.stopAnimating()
             self.isUserInteractionEnabled = true
+            self.progress = 0
         }
     }
     
