@@ -22,4 +22,30 @@ class ViewController: UIViewController {
             sender.stopAnimating()
         }
     }
+    
+    @IBAction private func onProgressTap(_ sender: APButton) {
+        sender.startAnimating()
+        
+        let endDate = Date(timeIntervalSinceNow: 5)
+        if #available(iOS 10.0, *) {
+            _ = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+                let progress = CGFloat((5 - endDate.timeIntervalSinceNow) / 5)
+                sender.progress = progress
+                
+                if Date() > endDate {
+                    timer.invalidate()
+                    sender.stopAnimating()
+                    sender.progress = 0
+                }
+            }
+        }
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Private Properties
+    //-----------------------------------------------------------------------------
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Actions
+    //-----------------------------------------------------------------------------
 }

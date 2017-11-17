@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AnY-BY-so0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AnY-BY-so0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -152,6 +152,29 @@
                                     <action selector="onActivityTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hKw-qv-uax"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPG-84-s4g" customClass="APButton" customModule="APButton">
+                                <rect key="frame" x="87" y="276" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="vi3-Dl-EdG"/>
+                                    <constraint firstAttribute="width" constant="200" id="yXv-ii-UvO"/>
+                                </constraints>
+                                <state key="normal" title="No Dependent" image="Gintama">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnePixelWidth" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.098039215686274508" green="0.71372549019607845" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="0.098039215686274508" green="0.71372549019607845" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onProgressTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ha7-rh-BdG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -160,9 +183,11 @@
                             <constraint firstItem="gMe-mX-0PM" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Lek-8N-CBs"/>
                             <constraint firstItem="D0b-KF-28M" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="MMA-aO-25f"/>
                             <constraint firstItem="oIZ-Ta-0BT" firstAttribute="top" secondItem="gMe-mX-0PM" secondAttribute="bottom" constant="20" id="MuF-qn-oCe"/>
+                            <constraint firstItem="ZPG-84-s4g" firstAttribute="top" secondItem="oIZ-Ta-0BT" secondAttribute="bottom" constant="20" id="QVI-F6-3D0"/>
                             <constraint firstItem="gMe-mX-0PM" firstAttribute="top" secondItem="D0b-KF-28M" secondAttribute="bottom" constant="20" id="TWc-E9-xB5"/>
                             <constraint firstItem="oIZ-Ta-0BT" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Vql-bj-zOE"/>
                             <constraint firstItem="D0b-KF-28M" firstAttribute="top" secondItem="OhM-2F-KXB" secondAttribute="bottom" constant="20" id="une-GX-ZHI"/>
+                            <constraint firstItem="ZPG-84-s4g" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="wTS-dV-lo7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Activity" id="jow-ww-fzK"/>

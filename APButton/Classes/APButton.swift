@@ -33,6 +33,31 @@ public class APButton: UIButton {
     /// Make button round
     @IBInspectable public var rounded: Bool = false
     
+    /// Progress bar color
+    @IBInspectable public var progressColor: UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1) {
+        didSet {
+            progressView.backgroundColor = progressColor
+        }
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Public Properties
+    //-----------------------------------------------------------------------------
+    
+    /// Progress bar progress. From 0 to 1.
+    public var progress: CGFloat = 0 {
+        didSet {
+            // Clamp progress
+            if progress > 1 {
+                progress = 1
+            } else if progress < 0 {
+                progress = 0
+            }
+            
+            setNeedsLayout()
+        }
+    }
+    
     //-----------------------------------------------------------------------------
     // MARK: - UIButton Properties
     //-----------------------------------------------------------------------------
@@ -91,6 +116,15 @@ public class APButton: UIButton {
     private let overlayView = UIView()
     private var defaultBorderColor: CGColor?
     private var isMadeBorderDisabled = false
+    private var isAnimating = false
+    
+    private lazy var progressView: UIView = {
+        let progressView = UIView()
+        progressView.backgroundColor = progressColor
+        progressView.isUserInteractionEnabled = false
+        
+        return progressView
+    }()
     
     //-----------------------------------------------------------------------------
     // MARK: - Initialization and Setup
@@ -111,10 +145,20 @@ public class APButton: UIButton {
     }
     
     private func setup() {
-        dependentViews?.forEach({ _dependentViews.add($0) })
-        dependentViews = nil
+        setupViews()
         
         adjustsImageWhenHighlighted = false
+        
+        configureDisabledColor()
+        configureEnabled()
+        configureHighlight(animated: false)
+    }
+    
+    private func setupViews() {
+        insertSubview(progressView, at: 0)
+        
+        dependentViews?.forEach({ _dependentViews.add($0) })
+        dependentViews = nil
         
         addSubview(overlayView)
         overlayView.frame = bounds
@@ -129,10 +173,6 @@ public class APButton: UIButton {
         activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
         let msk: UIViewAutoresizing = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
         activityIndicator.autoresizingMask = msk
-        
-        configureDisabledColor()
-        configureEnabled()
-        configureHighlight(animated: false)
     }
     
     //-----------------------------------------------------------------------------
@@ -214,7 +254,29 @@ public class APButton: UIButton {
             layer.cornerRadius = min(bounds.size.width, bounds.size.height) / 2
         }
         
+        if isAnimating {
+            self.titleLabel?.alpha = 0
+            self.imageView?.alpha = 0
+        } else {
+            self.titleLabel?.alpha = 1
+            self.imageView?.alpha = 1
+        }
+        
         overlayView.layer.cornerRadius = layer.cornerRadius
+        
+        insertSubview(progressView, at: 0)
+        progressView.layer.cornerRadius = layer.cornerRadius
+        let animated = progressView.frame != .zero
+        let changes: () -> () = {
+            self.progressView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width * self.progress, height: self.bounds.size.height)
+        }
+        if animated {
+            UIView.animate(withDuration: 0.05, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction, .curveLinear], animations: {
+                changes()
+            }, completion: nil)
+        } else {
+            changes()
+        }
     }
     
     //-----------------------------------------------------------------------------
@@ -232,6 +294,7 @@ public class APButton: UIButton {
     //-----------------------------------------------------------------------------
     
     public func startAnimating() {
+        isAnimating = true
         _g_performInMain {
             self.isUserInteractionEnabled = false
             self.isHighlighted = false
@@ -260,6 +323,7 @@ public class APButton: UIButton {
     }
     
     public func stopAnimating() {
+        isAnimating = false
         _g_performInMain {
             for (view, alpha) in self.animatingViewsOriginalAlphas {
                 view.alpha = alpha
