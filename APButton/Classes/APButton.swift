@@ -17,6 +17,12 @@ let g_ButtonHighlightAlphaCoef: CGFloat = 0.2
 public class APButton: UIButton {
     
     //-----------------------------------------------------------------------------
+    // MARK: - Types
+    //-----------------------------------------------------------------------------
+    
+    public typealias Action = (APButton) -> ()
+    
+    //-----------------------------------------------------------------------------
     // MARK: - @IBOutlet UIButton
     //-----------------------------------------------------------------------------
     
@@ -43,6 +49,12 @@ public class APButton: UIButton {
     //-----------------------------------------------------------------------------
     // MARK: - Public Properties
     //-----------------------------------------------------------------------------
+    
+    public var action: Action? {
+        didSet {
+            configureAction()
+        }
+    }
     
     /// Progress bar progress. From 0 to 1.
     public var progress: CGFloat = 0 {
@@ -136,6 +148,13 @@ public class APButton: UIButton {
         setup()
     }
     
+    convenience public init(action: @escaping Action) {
+        self.init()
+        
+        self.action = action
+        configureAction()
+    }
+    
     required public init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
     public override func awakeFromNib() {
@@ -145,6 +164,7 @@ public class APButton: UIButton {
     }
     
     private func setup() {
+        setupAction()
         setupViews()
         
         adjustsImageWhenHighlighted = false
@@ -152,6 +172,10 @@ public class APButton: UIButton {
         configureDisabledColor()
         configureEnabled()
         configureHighlight(animated: false)
+    }
+    
+    private func setupAction() {
+        addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
     }
     
     private func setupViews() {
@@ -173,6 +197,16 @@ public class APButton: UIButton {
         activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
         let msk: UIViewAutoresizing = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
         activityIndicator.autoresizingMask = msk
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Configuration
+    //-----------------------------------------------------------------------------
+    
+    private func configureAction() {
+        if action != nil {
+            addTarget(self, action: #selector(onTap(_:)), for: .touchUpInside)
+        }
     }
     
     //-----------------------------------------------------------------------------
@@ -347,6 +381,14 @@ public class APButton: UIButton {
             self.isUserInteractionEnabled = true
             self.progress = 0
         }
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Actions
+    //-----------------------------------------------------------------------------
+    
+    @IBAction private func onTap(_ sender: Any) {
+        action?(self)
     }
     
     //-----------------------------------------------------------------------------
