@@ -67,6 +67,7 @@ public class APButton: UIButton {
             }
             
             setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     
@@ -299,12 +300,13 @@ public class APButton: UIButton {
         overlayView.layer.cornerRadius = layer.cornerRadius
         
         insertSubview(progressView, at: 0)
+        progressView.isHidden = !isAnimating
         progressView.layer.cornerRadius = layer.cornerRadius
         let animated = progressView.frame != .zero
         let changes: () -> () = {
             self.progressView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width * self.progress, height: self.bounds.size.height)
         }
-        if animated {
+        if animated && isAnimating {
             UIView.animate(withDuration: 0.05, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction, .curveLinear], animations: {
                 changes()
             }, completion: nil)
