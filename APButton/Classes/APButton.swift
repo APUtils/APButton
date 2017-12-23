@@ -50,6 +50,8 @@ public class APButton: UIButton {
     // MARK: - Public Properties
     //-----------------------------------------------------------------------------
     
+    public private(set) var isAnimating = false
+    
     public var action: Action? {
         didSet {
             configureAction()
@@ -129,7 +131,6 @@ public class APButton: UIButton {
     private let overlayView = UIView()
     private var defaultBorderColor: CGColor?
     private var isMadeBorderDisabled = false
-    private var isAnimating = false
     
     private lazy var progressView: UIView = {
         let progressView = UIView()
@@ -330,6 +331,8 @@ public class APButton: UIButton {
     //-----------------------------------------------------------------------------
     
     public func startAnimating() {
+        guard !isAnimating else { return }
+        
         isAnimating = true
         _g_performInMain {
             self.isUserInteractionEnabled = false
@@ -359,6 +362,8 @@ public class APButton: UIButton {
     }
     
     public func stopAnimating() {
+        guard isAnimating else { return }
+        
         isAnimating = false
         _g_performInMain {
             for (view, alpha) in self.animatingViewsOriginalAlphas {
