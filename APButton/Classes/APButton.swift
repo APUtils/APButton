@@ -90,11 +90,9 @@ public class APButton: UIButton {
             guard !activityIndicator.isAnimating && isHighlighted != oldValue else { return }
             
             let changes: (_ animated: Bool) -> () = { animated in
-                if self.buttonType == .custom {
-                    let newAlpha = self.isHighlighted ? g_ButtonHighlightAlphaCoef : 1
-                    self.imageView?.alpha = newAlpha
-                    self.titleLabel?.alpha = newAlpha
-                }
+                let newAlpha = self.isHighlighted ? g_ButtonHighlightAlphaCoef : 1
+                self.imageView?.alpha = newAlpha
+                self.titleLabel?.alpha = newAlpha
                 
                 if self.overlayColor != nil {
                     self.overlayView.alpha = self.isHighlighted ? 1 : 0
