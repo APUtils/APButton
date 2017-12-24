@@ -90,9 +90,7 @@ public class APButton: UIButton {
             guard !activityIndicator.isAnimating && isHighlighted != oldValue else { return }
             
             let changes: (_ animated: Bool) -> () = { animated in
-                let newAlpha = self.isHighlighted ? g_ButtonHighlightAlphaCoef : 1
-                self.imageView?.alpha = newAlpha
-                self.titleLabel?.alpha = newAlpha
+                self.configureTitleAndImageView()
                 
                 if self.overlayColor != nil {
                     self.overlayView.alpha = self.isHighlighted ? 1 : 0
@@ -209,6 +207,19 @@ public class APButton: UIButton {
         }
     }
     
+    private func configureTitleAndImageView() {
+        if isAnimating {
+            self.titleLabel?.alpha = 0
+            self.imageView?.alpha = 0
+        } else if isHighlighted {
+            self.titleLabel?.alpha = g_ButtonHighlightAlphaCoef
+            self.imageView?.alpha = g_ButtonHighlightAlphaCoef
+        } else {
+            self.titleLabel?.alpha = 1
+            self.imageView?.alpha = 1
+        }
+    }
+    
     //-----------------------------------------------------------------------------
     // MARK: - Configuration - Highlight
     //-----------------------------------------------------------------------------
@@ -288,14 +299,7 @@ public class APButton: UIButton {
             layer.cornerRadius = min(bounds.size.width, bounds.size.height) / 2
         }
         
-        if isAnimating {
-            self.titleLabel?.alpha = 0
-            self.imageView?.alpha = 0
-        } else {
-            self.titleLabel?.alpha = 1
-            self.imageView?.alpha = 1
-        }
-        
+        configureTitleAndImageView()
         overlayView.layer.cornerRadius = layer.cornerRadius
         
         insertSubview(progressView, at: 0)
@@ -343,8 +347,7 @@ public class APButton: UIButton {
             })
             
             let changes: () -> () = {
-                self.titleLabel?.alpha = 0
-                self.imageView?.alpha = 0
+                self.configureTitleAndImageView()
             }
             
             self.titleLabel?.layer.removeAllAnimations()
@@ -370,8 +373,7 @@ public class APButton: UIButton {
             self.animatingViewsOriginalAlphas = [:]
             
             let changes: () -> () = {
-                self.titleLabel?.alpha = 1
-                self.imageView?.alpha = 1
+                self.configureTitleAndImageView()
             }
             
             self.titleLabel?.layer.removeAllAnimations()

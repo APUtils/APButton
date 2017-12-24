@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="44" id="zL6-HM-uyr"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIZ-Ta-0BT" customClass="APButton" customModule="APButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIZ-Ta-0BT" customClass="APButton" customModule="APButton">
                                 <rect key="frame" x="87" y="216" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.098112963139999995" green="0.71202945709999999" blue="0.52435266970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
