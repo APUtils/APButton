@@ -37,7 +37,7 @@ public class APButton: UIButton {
     @IBInspectable public var overlayColor: UIColor?
     
     /// Make button round
-    @IBInspectable public var rounded: Bool = false
+    @IBInspectable public var rounded: Bool = false { didSet { setNeedsLayout() } }
     
     /// Progress bar color
     @IBInspectable public var progressColor: UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1) {
@@ -76,6 +76,14 @@ public class APButton: UIButton {
     //-----------------------------------------------------------------------------
     // MARK: - UIButton Properties
     //-----------------------------------------------------------------------------
+    
+    public override var isHidden: Bool {
+        didSet {
+            guard oldValue != isHidden else { return }
+            
+            configureIsHiddenForDependentViews()
+        }
+    }
     
     override public var isEnabled: Bool {
         didSet {
@@ -170,6 +178,7 @@ public class APButton: UIButton {
         configureDisabledColor()
         configureEnabled()
         configureHighlight(animated: false)
+        configureIsHiddenForDependentViews()
     }
     
     private func setupAction() {
@@ -262,6 +271,10 @@ public class APButton: UIButton {
                 
                 $0.ap_disabledTextColor = disabledTextColor
             })
+    }
+    
+    private func configureIsHiddenForDependentViews() {
+        _dependentViews.allObjects.forEach({ $0.ap_isHidden = isHidden })
     }
     
     private func configureEnabled() {

@@ -10,6 +10,7 @@ import UIKit
 
 
 private var defaultAlphaAssociationKey = 0
+private var defaultIsHiddenAssociationKey = 0
 
 
 extension UIView {
@@ -36,6 +37,34 @@ extension UIView {
                 if let defaultAlpha = defaultAlpha {
                     alpha = defaultAlpha
                     self.defaultAlpha = nil
+                }
+            }
+        }
+    }
+    
+    private var defaultIsHidden: Bool? {
+        get {
+            return objc_getAssociatedObject(self, &defaultIsHiddenAssociationKey) as? Bool
+        }
+        set {
+            objc_setAssociatedObject(self, &defaultIsHiddenAssociationKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    var ap_isHidden: Bool {
+        get {
+            return isHidden
+        }
+        set {
+            guard newValue != isHidden else { return }
+            
+            if newValue {
+                defaultIsHidden = isHidden
+                isHidden = true
+            } else {
+                if let defaultIsHidden = defaultIsHidden {
+                    isHidden = defaultIsHidden
+                    self.defaultIsHidden = nil
                 }
             }
         }
