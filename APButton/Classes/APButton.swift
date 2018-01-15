@@ -50,8 +50,13 @@ public class APButton: UIButton {
     // MARK: - Public Properties
     //-----------------------------------------------------------------------------
     
+    /// Indicates if button is animating
     public private(set) var isAnimating = false
     
+    /// Button loading counter
+    public private(set) var loadingCounter = 0
+    
+    /// Action that will be performed on button tap
     public var action: Action? {
         didSet {
             configureAction()
@@ -345,11 +350,13 @@ public class APButton: UIButton {
     // MARK: - Public Methods
     //-----------------------------------------------------------------------------
     
+    /// Starts loading animation
     public func startAnimating() {
-        guard !isAnimating else { return }
-        
-        isAnimating = true
         _g_performInMain {
+            guard !self.isAnimating else { return }
+            
+            self.isAnimating = true
+            
             self.isUserInteractionEnabled = false
             self.isHighlighted = false
             
@@ -375,11 +382,13 @@ public class APButton: UIButton {
         }
     }
     
+    /// Stops loading animation
     public func stopAnimating() {
-        guard isAnimating else { return }
-        
-        isAnimating = false
         _g_performInMain {
+            guard self.isAnimating else { return }
+            
+            self.isAnimating = false
+            
             for (view, alpha) in self.animatingViewsOriginalAlphas {
                 view.alpha = alpha
             }
@@ -400,6 +409,31 @@ public class APButton: UIButton {
             self.activityIndicator.stopAnimating()
             self.isUserInteractionEnabled = true
             self.progress = 0
+        }
+    }
+    
+    /// Increases counter and starts animating
+    public func increaseLoadingCounter() {
+        _g_performInMain {
+            self.loadingCounter += 1
+            self.startAnimating()
+        }
+    }
+    
+    /// Decreases counter and stops animating if counter is zero.
+    /// - parameter nullify: Should nullify counter and force stop loading animation?
+    public func decreaseLoadingCounter(nullify: Bool = false) {
+        _g_performInMain {
+            if nullify {
+                self.loadingCounter = 0
+            } else {
+                self.loadingCounter -= 1
+            }
+            
+            if self.loadingCounter <= 0 {
+                self.stopAnimating()
+                self.loadingCounter = 0
+            }
         }
     }
     
