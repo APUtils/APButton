@@ -11,7 +11,7 @@ install! 'cocoapods',
 
 target 'APButton_Example' do
     pod 'APButton', :path => '../'
-    pod 'APExtensions'
+    pod 'APExtensions', :git => 'https://github.com/APUtils/APExtensions'
 
     target 'APButton_Tests' do
         inherit! :search_paths
@@ -25,6 +25,18 @@ end
 
 
 post_install do |installer|
+    # TODO: Remove pods when they converted to Swift 4
+    # Your list of targets here.
+    myTargets = ['Quick', 'Nimble', 'Nimble-Snapshots']
+    
+    installer.pods_project.targets.each do |target|
+        if myTargets.include? target.name
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.2'
+            end
+        end
+    end
+    
     # Carthage support.
     # It puts `APButton.swift` into public headers so @IBInspectable won't be stripped out.
     additionHeader = installer.pods_project.development_pods['APButton/APButton.swift']
