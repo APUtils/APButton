@@ -21,3 +21,11 @@ func _g_performInMain(_ closure: @escaping () -> ()) {
         closure()
     }
 }
+
+func _g_isCGFloatsEqual(first: CGFloat, second: CGFloat) -> Bool {
+    if abs(first - second) < 0.0001 {
+        return true
+    } else {
+        return false
+    }
+}

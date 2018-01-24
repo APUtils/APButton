@@ -37,7 +37,7 @@ extension UIView {
                 if let defaultAlpha = defaultAlpha {
                     // Check if alpha did not changed
                     // Changed alpha indicates that something else took control over alpha so better to not interupt it
-                    if alpha == defaultAlpha * g_ButtonHighlightAlphaCoef {
+                    if _g_isCGFloatsEqual(first: alpha, second: defaultAlpha * g_ButtonHighlightAlphaCoef) {
                         alpha = defaultAlpha
                     }
                     self.defaultAlpha = nil
