@@ -100,7 +100,7 @@ public class APButton: UIButton {
     
     override public var isHighlighted: Bool {
         didSet {
-            guard !activityIndicator.isAnimating && isHighlighted != oldValue else { return }
+            guard isHighlighted != oldValue else { return }
             
             let changes: (_ animated: Bool) -> () = { animated in
                 self.configureTitleAndImageView()
@@ -112,7 +112,7 @@ public class APButton: UIButton {
                 }
             }
             
-            if UIView.areAnimationsEnabled {
+            if UIView.areAnimationsEnabled && !isAnimating {
                 let highightDuration = isTouchInside ? 0.0 : 0.3
                 let duration = isHighlighted ? highightDuration : 0.3
                 
@@ -356,9 +356,8 @@ public class APButton: UIButton {
             guard !self.isAnimating else { return }
             
             self.isAnimating = true
-            
-            self.isUserInteractionEnabled = false
             self.isHighlighted = false
+            self.isUserInteractionEnabled = false
             
             self.animatingViewsOriginalAlphas = [:]
             self._dependentViews.allObjects.forEach({
