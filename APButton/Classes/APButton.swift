@@ -73,8 +73,10 @@ public class APButton: UIButton {
                 progress = 0
             }
             
-            setNeedsLayout()
-            layoutIfNeeded()
+            _g_performInMain {
+                self.setNeedsLayout()
+                self.layoutIfNeeded()
+            }
         }
     }
     
