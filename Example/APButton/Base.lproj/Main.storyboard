@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AnY-BY-so0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AnY-BY-so0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhM-2F-KXB" customClass="APButton" customModule="APButton">
-                                <rect key="frame" x="87" y="28" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="28" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.098112963139999995" green="0.71202945709999999" blue="0.52435266970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8rz-RB-koc"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-KF-28M" userLabel="Button Container">
-                                <rect key="frame" x="37" y="88" width="300" height="44"/>
+                                <rect key="frame" x="37.5" y="88" width="300" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dependent Labels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJP-iB-ts5">
                                         <rect key="frame" x="80" y="4" width="140" height="21"/>
@@ -51,7 +51,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="eVL-I9-u8p">
-                                        <rect key="frame" x="4" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="4" y="5.5" width="33" height="33"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gj-Ef-utJ" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -86,7 +86,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMe-mX-0PM" userLabel="Button Container 2">
-                                <rect key="frame" x="87" y="152" width="200" height="44"/>
+                                <rect key="frame" x="87.5" y="152" width="200" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overlay Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeS-kP-HbL">
                                         <rect key="frame" x="48" y="4" width="104" height="21"/>
@@ -101,7 +101,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="utx-6L-HdO">
-                                        <rect key="frame" x="4" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="4" y="5.5" width="33" height="33"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-Bs-i4u" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
@@ -138,7 +138,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIZ-Ta-0BT" customClass="APButton" customModule="APButton">
-                                <rect key="frame" x="87" y="216" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="216" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.098112963139999995" green="0.71202945709999999" blue="0.52435266970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="AiA-hn-tIi"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPG-84-s4g" customClass="APButton" customModule="APButton">
-                                <rect key="frame" x="87" y="276" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="276" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="vi3-Dl-EdG"/>
                                     <constraint firstAttribute="width" constant="200" id="yXv-ii-UvO"/>
@@ -228,10 +228,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRs-eU-Cah" userLabel="Button Container 0">
-                                <rect key="frame" x="37" y="40" width="300" height="44"/>
+                                <rect key="frame" x="37.5" y="40" width="300" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabled Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWz-aQ-ksG">
-                                        <rect key="frame" x="92" y="4" width="117" height="21"/>
+                                        <rect key="frame" x="91.5" y="4" width="117" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -243,7 +243,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="NrW-kG-85O">
-                                        <rect key="frame" x="4" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="4" y="5.5" width="33" height="33"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0w-K2-eHD" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -277,7 +277,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jX-Os-b1I" userLabel="Button Container 1">
-                                <rect key="frame" x="38" y="104" width="300" height="44"/>
+                                <rect key="frame" x="37.5" y="104" width="300" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Same Color Labels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIl-Rp-9td">
                                         <rect key="frame" x="78" y="4" width="144" height="21"/>
@@ -292,7 +292,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="jNF-hJ-IWf">
-                                        <rect key="frame" x="4" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="4" y="5.5" width="33" height="33"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dd-hI-IoA" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -326,10 +326,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9u-PK-oXU" userLabel="Button Container 2">
-                                <rect key="frame" x="37" y="168" width="300" height="44"/>
+                                <rect key="frame" x="37.5" y="168" width="300" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Different Color Labels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6td-f6-Be5">
-                                        <rect key="frame" x="67" y="4" width="167" height="21"/>
+                                        <rect key="frame" x="66.5" y="4" width="167" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -341,7 +341,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="xyP-ob-Pd5">
-                                        <rect key="frame" x="4" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="4" y="5.5" width="33" height="33"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-p3-Lzk" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -375,7 +375,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WO-QP-lbe" customClass="APButton" customModule="APButton">
-                                <rect key="frame" x="137" y="232" width="100" height="44"/>
+                                <rect key="frame" x="137.5" y="232" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="68r-9j-bsU"/>
                                     <constraint firstAttribute="height" constant="44" id="vV1-j5-tYe"/>
@@ -396,7 +396,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6l-Pe-9ZB" customClass="APButton" customModule="APButton">
-                                <rect key="frame" x="137" y="296" width="100" height="44"/>
+                                <rect key="frame" x="137.5" y="296" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Clh-Yg-tqm"/>
                                     <constraint firstAttribute="width" constant="100" id="y43-If-Rzm"/>
@@ -440,7 +440,7 @@
         <!--Click Test-->
         <scene sceneID="4br-M4-k1J">
             <objects>
-                <viewController id="dUs-wz-nGI" sceneMemberID="viewController">
+                <viewController id="dUs-wz-nGI" customClass="ViewController" customModule="APButton_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hT0-nn-LuU"/>
                         <viewControllerLayoutGuide type="bottom" id="67s-mo-uZr"/>
@@ -450,7 +450,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGg-Up-AOW" customClass="APButton" customModule="APButton">
-                                <rect key="frame" x="87" y="28" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="28" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.098112963139999995" green="0.71202945709999999" blue="0.52435266970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mso-oJ-GOu"/>
@@ -460,9 +460,12 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onChangeNameTap:" destination="dUs-wz-nGI" eventType="touchUpInside" id="Kd2-0x-tzJ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYS-AD-8nY" userLabel="Button Container">
-                                <rect key="frame" x="37" y="88" width="300" height="44"/>
+                                <rect key="frame" x="37.5" y="88" width="300" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOA-m1-42n" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -477,6 +480,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="onChangeNameTap:" destination="dUs-wz-nGI" eventType="touchUpInside" id="ueh-lv-85Y"/>
                                             <outletCollection property="dependentViews" destination="qQJ-yt-ym0" collectionClass="NSMutableArray" id="nDu-VT-8uD"/>
                                             <outletCollection property="dependentViews" destination="vvf-mY-Svf" collectionClass="NSMutableArray" id="Yeu-XI-xY5"/>
                                             <outletCollection property="dependentViews" destination="RnQ-xL-dKl" collectionClass="NSMutableArray" id="Bn5-uV-HtY"/>
@@ -495,7 +499,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="qQJ-yt-ym0">
-                                        <rect key="frame" x="16" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="16" y="5.5" width="33" height="33"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -514,7 +518,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oo1-u3-JQi" userLabel="Button Container 2">
-                                <rect key="frame" x="62" y="152" width="250" height="44"/>
+                                <rect key="frame" x="62.5" y="152" width="250" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overlay Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUJ-ot-KvR">
                                         <rect key="frame" x="73" y="4" width="104" height="21"/>
@@ -529,7 +533,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="e71-d7-Npg">
-                                        <rect key="frame" x="16" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="16" y="5.5" width="33" height="33"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cm-p9-Ppm" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
@@ -546,6 +550,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="onChangeNameTap:" destination="dUs-wz-nGI" eventType="touchUpInside" id="aiC-nA-hGO"/>
                                             <outletCollection property="dependentViews" destination="e71-d7-Npg" collectionClass="NSMutableArray" id="aGW-Ng-fn2"/>
                                             <outletCollection property="dependentViews" destination="q79-yZ-wl7" collectionClass="NSMutableArray" id="pDc-zC-Ykk"/>
                                             <outletCollection property="dependentViews" destination="ZUJ-ot-KvR" collectionClass="NSMutableArray" id="uyL-FE-6Da"/>
@@ -574,7 +579,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsC-B8-U3D" userLabel="Button Container 3">
-                                <rect key="frame" x="37" y="216" width="300" height="44"/>
+                                <rect key="frame" x="37.5" y="216" width="300" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s04-8S-Kh1" customClass="APButton" customModule="APButton">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -593,6 +598,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnePixelWidth" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="onChangeNameTap:" destination="dUs-wz-nGI" eventType="touchUpInside" id="8nu-nk-pz7"/>
                                             <outletCollection property="dependentViews" destination="AF0-PU-EaT" collectionClass="NSMutableArray" id="j4G-Kt-Ieb"/>
                                             <outletCollection property="dependentViews" destination="D8X-zG-swA" collectionClass="NSMutableArray" id="Tzp-rn-oZt"/>
                                             <outletCollection property="dependentViews" destination="LgU-BO-2g5" collectionClass="NSMutableArray" id="3pw-Hy-0kD"/>
@@ -611,7 +617,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gintama" translatesAutoresizingMaskIntoConstraints="NO" id="AF0-PU-EaT">
-                                        <rect key="frame" x="16" y="6" width="33" height="33"/>
+                                        <rect key="frame" x="16" y="5.5" width="33" height="33"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -644,6 +650,9 @@
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onChangeNameTap:" destination="dUs-wz-nGI" eventType="touchUpInside" id="mdW-FV-S5E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -669,6 +678,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Gintama" width="33" height="33"/>
+        <image name="Gintama" width="33.5" height="33.5"/>
     </resources>
 </document>

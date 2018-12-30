@@ -348,6 +348,15 @@ public class APButton: UIButton {
         configureDisabledColor()
     }
     
+    public override func setTitle(_ title: String?, for state: UIControl.State) {
+        super.setTitle(title, for: state)
+        
+        // For some reason system button doesn't set text properly when overrided
+        if buttonType == .system && (state.isEmpty || !state.intersection(self.state).isEmpty) {
+            titleLabel?.text = title
+        }
+    }
+    
     //-----------------------------------------------------------------------------
     // MARK: - Public Methods
     //-----------------------------------------------------------------------------

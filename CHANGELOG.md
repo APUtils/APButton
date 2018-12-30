@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [5.0.1](https://github.com/APUtils/APButton/releases/tag/5.0.1)
+Released on 12/30/2018.
+
+#### Fixed
+- System button title set
+
+
 ## [5.0.0](https://github.com/APUtils/APButton/releases/tag/5.0.0)
 Released on 12/30/2018.
 

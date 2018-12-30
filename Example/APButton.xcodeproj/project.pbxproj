@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		0A8EFF8B8373161D9655E022 /* Pods-APButton_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APButton_Tests/Pods-APButton_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0E6DA7D3EA621D715E20C314 /* .cocoadocs.yml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = .cocoadocs.yml; path = ../.cocoadocs.yml; sourceTree = "<group>"; };
-		1FC67B7BE4E7AF6D9F4E8BDC /* APButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = APButton.podspec; path = ../APButton.podspec; sourceTree = "<group>"; };
+		1FC67B7BE4E7AF6D9F4E8BDC /* APButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = APButton.podspec; path = ../APButton.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		428B1674F6BC3926191504C3 /* podCheck.command */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = podCheck.command; path = ../podCheck.command; sourceTree = "<group>"; };
 		46A75BEFD59CD5DDC1AB17E7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		49B196600D5116B1C3C6B23B /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };

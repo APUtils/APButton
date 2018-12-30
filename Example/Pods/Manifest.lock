@@ -1,5 +1,5 @@
 PODS:
-  - APButton (5.0.0)
+  - APButton (5.0.1)
   - APExtensions (5.0.0):
     - APExtensions/Abstractions (= 5.0.0)
     - APExtensions/Core (= 5.0.0)
@@ -57,7 +57,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
-  APButton: 532c06d9863a62f4836a1fecf104c137ea5b0485
+  APButton: 6efafb330b7dd73e31d4350684f7e44c2563dbc5
   APExtensions: 4b5b4db5dd452194a5f1b6fdb0450a058ec59d28
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   iOSSnapshotTestCase: 415bd84f9dbba4ff45fede49d800bc7332fbedac
