@@ -7,6 +7,19 @@ Released on 12/30/2018.
 
 #### Added
 - Swift 4.2 support
+- .progress and .progressColor properties to show loading progress
+- Init with action closure
+- Make isAnimating public
+- Carefull start and stop animating
+- Configure depended views isHidden together with main button
+- .increaseLoadingCounter() and .decreaseLoadingCounter(nullify:)
+
+#### Fixed
+- iOS 11 title not animating on click fix
+- Title alpha fix
+- Complex animations fix
+- Alpha comparison check fix
+- Prevent crash on progress change from background
 
 
 ## [4.0.3](https://github.com/APUtils/APButton/releases/tag/4.0.3)
