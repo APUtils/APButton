@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'APButton'
-  s.version          = '4.1.0'
+  s.version          = '5.0.0'
   s.summary          = 'Button with ability to show loading indicator and animate depended views.'
 
 # This description is used to generate tags and improve search results.

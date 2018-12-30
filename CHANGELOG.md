@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.0](https://github.com/APUtils/APButton/releases/tag/5.0.0)
+Released on 12/30/2018.
+
+#### Added
+- Swift 4.2 support
+
+
 ## [4.0.3](https://github.com/APUtils/APButton/releases/tag/4.0.3)
 Released on 10/04/2017.
 

@@ -119,7 +119,7 @@ public class APButton: UIButton {
                 let duration = isHighlighted ? highightDuration : 0.3
                 
                 if duration > 0 {
-                    let options: UIViewAnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
+                    let options: UIView.AnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
                     UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                         changes(true)
                     }, completion: nil)
@@ -138,7 +138,7 @@ public class APButton: UIButton {
     
     private var _dependentViews = NSHashTable<UIView>(options: [.weakMemory])
     private var animatingViewsOriginalAlphas = [UIView: CGFloat]()
-    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let activityIndicator = UIActivityIndicatorView(style: .gray)
     private let overlayView = UIView()
     private var defaultBorderColor: CGColor?
     private var isMadeBorderDisabled = false
@@ -209,7 +209,7 @@ public class APButton: UIButton {
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
         activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
-        let msk: UIViewAutoresizing = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
+        let msk: UIView.AutoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
         activityIndicator.autoresizingMask = msk
     }
     
@@ -271,7 +271,7 @@ public class APButton: UIButton {
     
     private func configureDisabledColor() {
         _dependentViews.allObjects
-            .flatMap({ $0 as? UILabel })
+            .compactMap({ $0 as? UILabel })
             .filter({ $0.textColor == titleColor(for: .normal) })
             .forEach({
                 guard let disabledTextColor = titleColor(for: .disabled) else { return }
@@ -305,7 +305,7 @@ public class APButton: UIButton {
     }
     
     private func configureEnabledForDependentViews() {
-        _dependentViews.allObjects.flatMap({ $0 as? UILabel }).forEach({ $0.ap_disabled = !isEnabled })
+        _dependentViews.allObjects.compactMap({ $0 as? UILabel }).forEach({ $0.ap_disabled = !isEnabled })
     }
     
     //-----------------------------------------------------------------------------
@@ -342,7 +342,7 @@ public class APButton: UIButton {
     // MARK: - UIButton Methods
     //-----------------------------------------------------------------------------
     
-    public override func setTitleColor(_ color: UIColor?, for state: UIControlState) {
+    public override func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
         super.setTitleColor(color, for: state)
         
         configureDisabledColor()

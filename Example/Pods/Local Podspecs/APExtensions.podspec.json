@@ -1,9 +1,10 @@
 {
   "name": "APExtensions",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "summary": "A helpful collection of extensions, controllers and protocols.",
   "description": "A helpful collection of extensions, controllers and protocols. See documentation for details.",
   "homepage": "https://github.com/APUtils/APExtensions",
+  "documentation_url": "https://aputils.github.io/APExtensions/",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -13,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/APUtils/APExtensions.git",
-    "tag": "4.3.0"
+    "tag": "5.0.0"
   },
   "platforms": {
     "ios": "8.0"

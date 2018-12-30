@@ -1,28 +1,33 @@
 PODS:
-  - APButton (4.1.0)
-  - APExtensions (4.3.0):
-    - APExtensions/Abstractions (= 4.3.0)
-    - APExtensions/Core (= 4.3.0)
-    - APExtensions/Storyboard (= 4.3.0)
-    - APExtensions/ViewConfiguration (= 4.3.0)
-    - APExtensions/ViewState (= 4.3.0)
-  - APExtensions/Abstractions (4.3.0)
-  - APExtensions/Core (4.3.0)
-  - APExtensions/Storyboard (4.3.0)
-  - APExtensions/ViewConfiguration (4.3.0)
-  - APExtensions/ViewState (4.3.0)
+  - APButton (5.0.0)
+  - APExtensions (5.0.0):
+    - APExtensions/Abstractions (= 5.0.0)
+    - APExtensions/Core (= 5.0.0)
+    - APExtensions/Storyboard (= 5.0.0)
+    - APExtensions/ViewConfiguration (= 5.0.0)
+    - APExtensions/ViewState (= 5.0.0)
+  - APExtensions/Abstractions (5.0.0)
+  - APExtensions/Core (5.0.0)
+  - APExtensions/Storyboard (5.0.0)
+  - APExtensions/ViewConfiguration (5.0.0)
+  - APExtensions/ViewState (5.0.0)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Nimble (7.0.3)
-  - Nimble-Snapshots (6.3.0):
-    - Nimble-Snapshots/Core (= 6.3.0)
-  - Nimble-Snapshots/Core (6.3.0):
-    - FBSnapshotTestCase (~> 2.0)
+  - iOSSnapshotTestCase (2.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 2.2.0)
+  - iOSSnapshotTestCase/Core (2.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (2.2.0):
+    - iOSSnapshotTestCase/Core
+  - Nimble (7.3.1)
+  - Nimble-Snapshots (6.4.1):
+    - Nimble-Snapshots/Core (= 6.4.1)
+  - Nimble-Snapshots/Core (6.4.1):
+    - iOSSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
-  - Quick (1.2.0)
+  - Quick (1.3.2)
 
 DEPENDENCIES:
   - APButton (from `../`)
@@ -32,25 +37,34 @@ DEPENDENCIES:
   - Nimble-Snapshots
   - Quick
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FBSnapshotTestCase
+    - iOSSnapshotTestCase
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
+
 EXTERNAL SOURCES:
   APButton:
-    :path: ../
+    :path: "../"
   APExtensions:
     :git: https://github.com/APUtils/APExtensions
 
 CHECKOUT OPTIONS:
   APExtensions:
-    :commit: 2b6b209f69c0641b9d679ced1670e213aabc9e11
+    :commit: 17cbc4d9d6ae6e7d7a505f1f6272fbdd218fe93c
     :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
-  APButton: 26eb11de4b3a2fff6f4c8f6f1dbf015c2e9fd31c
-  APExtensions: a46202a421491d601960a8a4a23a680234e67d3a
+  APButton: 532c06d9863a62f4836a1fecf104c137ea5b0485
+  APExtensions: 4b5b4db5dd452194a5f1b6fdb0450a058ec59d28
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  iOSSnapshotTestCase: 415bd84f9dbba4ff45fede49d800bc7332fbedac
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Nimble-Snapshots: 438fb1a6fa3c655e246fc9ac375f6cd2964d759a
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
-PODFILE CHECKSUM: d7e401ab70b1a5a885de65f5722e09ce4dc17df1
+PODFILE CHECKSUM: 87924be6d81d84b4b15516d2ef216cecc54fa4f2
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

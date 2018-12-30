@@ -27,6 +27,26 @@ public extension Dictionary {
         try modifyValue(&value)
         self[key] = value
     }
+    
+    /// Returns a new dictionary containing the keys of this dictionary with the
+    /// values transformed by the given closure. Filters out keys with nil values.
+    ///
+    /// - Parameter transform: A closure that transforms a value. `transform`
+    ///   accepts each value of the dictionary as its parameter and returns a
+    ///   transformed value of the same or of a different type.
+    /// - Returns: A dictionary containing the keys and transformed values of
+    ///   this dictionary.
+    public func compactMapValues<T>(_ transform: (Dictionary.Value) throws -> T?) rethrows -> [Dictionary.Key: T] {
+        var resultDictionary = [Dictionary.Key: T]()
+        
+        for (key, value) in self {
+            guard let newValue = try transform(value) else { continue }
+            
+            resultDictionary[key] = newValue
+        }
+        
+        return resultDictionary
+    }
 }
 
 // ******************************* MARK: - Values for key
@@ -126,8 +146,8 @@ public extension Dictionary {
         }
     }
     
-    public func dictionary(forKey key: Key) -> [String: AnyObject]? {
-        if let dictionary = self[key] as? [String: AnyObject] {
+    public func dictionary(forKey key: Key) -> [String: Any]? {
+        if let dictionary = self[key] as? [String: Any] {
             return dictionary
         } else {
             return nil
