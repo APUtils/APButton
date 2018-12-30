@@ -352,8 +352,8 @@ public class APButton: UIButton {
         super.setTitle(title, for: state)
         
         // For some reason system button doesn't set text properly when overrided
-        if buttonType == .system && (state.isEmpty || !state.intersection(self.state).isEmpty) {
-            titleLabel?.text = title
+        if buttonType == .system {
+            titleLabel?.text = currentTitle
         }
     }
     
