@@ -351,7 +351,7 @@ public class APButton: UIButton {
     public override func setTitle(_ title: String?, for state: UIControl.State) {
         super.setTitle(title, for: state)
         
-        // For some reason system button doesn't set text properly when overrided
+        // For some reason system button doesn't set text properly when overridden
         if buttonType == .system {
             titleLabel?.text = currentTitle
         }
