@@ -1,6 +1,0 @@
-framework module APButton {
-  umbrella header "APButton-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,0 +1,4 @@
+github "APUtils/APExtensions"
+github "ashfurrow/Nimble-Snapshots"
+github "Quick/Nimble"
+github "Quick/Quick"

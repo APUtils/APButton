@@ -29,6 +29,7 @@ Button with ability to show loading indicator and animate depended views accordi
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.swift_versions = ['5.1']
 
   s.source_files = 'APButton/Classes/**/*'
   

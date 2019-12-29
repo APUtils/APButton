@@ -1,6 +1,0 @@
-framework module Pods_APButton_Example {
-  umbrella header "Pods-APButton_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

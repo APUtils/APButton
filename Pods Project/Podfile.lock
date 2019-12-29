@@ -1,0 +1,33 @@
+PODS:
+  - APButton (5.0.1)
+  - APExtensions (7.0.1):
+    - APExtensions/Abstractions (= 7.0.1)
+    - APExtensions/Core (= 7.0.1)
+    - APExtensions/Storyboard (= 7.0.1)
+    - APExtensions/ViewConfiguration (= 7.0.1)
+    - APExtensions/ViewState (= 7.0.1)
+  - APExtensions/Abstractions (7.0.1)
+  - APExtensions/Core (7.0.1)
+  - APExtensions/Storyboard (7.0.1)
+  - APExtensions/ViewConfiguration (7.0.1)
+  - APExtensions/ViewState (7.0.1)
+
+DEPENDENCIES:
+  - APButton (from `../`)
+  - APExtensions
+
+SPEC REPOS:
+  trunk:
+    - APExtensions
+
+EXTERNAL SOURCES:
+  APButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  APButton: 09fb82bbec62f0395f6cd30a214e7d7eba219fec
+  APExtensions: 9a7a7b6ff5b9785b245962de89fbbdaf4c10f10e
+
+PODFILE CHECKSUM: d5458ecba7ddbce5dd94bd637b32fbeb2b7c8654
+
+COCOAPODS: 1.8.4

@@ -13,3 +13,4 @@ before_install:
 script:
 - set -o pipefail && xcodebuild test -workspace Example/APButton.xcworkspace -scheme APButton-Example -destination "platform=iOS Simulator,OS=10.3.1,name=iPhone 7 Plus" ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
+- pod spec lint
