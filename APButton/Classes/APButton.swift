@@ -157,7 +157,13 @@ public class APButton: UIButton {
         }
     }()
     
-    private let overlayView = UIView()
+    private lazy var overlayView: UIView = {
+        let ov = UIView()
+        ov.accessibilityIdentifier = "overlayView"
+        
+        return ov
+    }()
+    
     private var defaultBorderColor: CGColor?
     private var isMadeBorderDisabled = false
     
@@ -165,6 +171,7 @@ public class APButton: UIButton {
         let progressView = UIView()
         progressView.backgroundColor = progressColor
         progressView.isUserInteractionEnabled = false
+        progressView.accessibilityIdentifier = "progressView"
         
         return progressView
     }()
