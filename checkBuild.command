@@ -44,7 +44,7 @@ set -o pipefail && xcodebuild -project "Carthage Project/APButton.xcodeproj" -sd
 echo ""
 
 echo -e "Building with Carthage..."
-carthage build --no-skip-current --cache-builds
+carthage build --no-skip-current --platform iOS --cache-builds
 echo ""
 
 echo -e "Performing tests..."
