@@ -1,6 +1,7 @@
 # APButton
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Version](https://img.shields.io/cocoapods/v/APButton.svg?style=flat)](http://cocoapods.org/pods/APButton)
 [![License](https://img.shields.io/cocoapods/l/APButton.svg?style=flat)](http://cocoapods.org/pods/APButton)
 [![Platform](https://img.shields.io/cocoapods/p/APButton.svg?style=flat)](http://cocoapods.org/pods/APButton)
