@@ -1,33 +1,39 @@
 PODS:
-  - APButton (5.0.1)
-  - APExtensions (7.0.1):
-    - APExtensions/Abstractions (= 7.0.1)
-    - APExtensions/Core (= 7.0.1)
-    - APExtensions/Storyboard (= 7.0.1)
-    - APExtensions/ViewConfiguration (= 7.0.1)
-    - APExtensions/ViewState (= 7.0.1)
-  - APExtensions/Abstractions (7.0.1)
-  - APExtensions/Core (7.0.1)
-  - APExtensions/Storyboard (7.0.1)
-  - APExtensions/ViewConfiguration (7.0.1)
-  - APExtensions/ViewState (7.0.1)
+  - APButton (6.0.0)
+  - APExtensions (10.0.0):
+    - APExtensions/Core (= 10.0.0)
+    - APExtensions/Storyboard (= 10.0.0)
+    - APExtensions/ViewConfiguration (= 10.0.0)
+  - APExtensions/Core (10.0.0):
+    - LogsManager/RoutableLogger (>= 9.1.5)
+  - APExtensions/Storyboard (10.0.0)
+  - APExtensions/ViewConfiguration (10.0.0)
+  - LogsManager/RoutableLogger (9.1.5)
 
 DEPENDENCIES:
   - APButton (from `../`)
-  - APExtensions
+  - APExtensions (from `https://github.com/APUtils/APExtensions`)
 
 SPEC REPOS:
   trunk:
-    - APExtensions
+    - LogsManager
 
 EXTERNAL SOURCES:
   APButton:
     :path: "../"
+  APExtensions:
+    :git: https://github.com/APUtils/APExtensions
+
+CHECKOUT OPTIONS:
+  APExtensions:
+    :commit: ae784925e948a39dbc9d521e538a32bef9544936
+    :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
-  APButton: 09fb82bbec62f0395f6cd30a214e7d7eba219fec
-  APExtensions: 9a7a7b6ff5b9785b245962de89fbbdaf4c10f10e
+  APButton: 4eb4db7b8e78d1795f4a11dfbbd2752b55cbb249
+  APExtensions: b46cab78fe5d291e1157838fd78962a886e627df
+  LogsManager: e821cea87e608e96cf39a68009d830579098a2cb
 
-PODFILE CHECKSUM: d5458ecba7ddbce5dd94bd637b32fbeb2b7c8654
+PODFILE CHECKSUM: ad8ef343270a7748f448e7dec12ae497539fe099
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

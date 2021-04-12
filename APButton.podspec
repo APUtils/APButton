@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'APButton'
-  s.version          = '5.0.1'
+  s.version          = '6.0.0'
   s.summary          = 'Button with ability to show loading indicator and animate depended views.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Button with ability to show loading indicator and animate depended views accordi
   s.source           = { :git => 'https://github.com/APUtils/APButton.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.swift_versions = ['5.1']
 
   s.source_files = 'APButton/Classes/**/*'

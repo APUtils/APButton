@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [6.0.0](https://github.com/APUtils/APButton/releases/tag/6.0.0)
+Released on 04/12/2021.
+
+#### Fixed
+- Warnings
+
+#### Changed
+- Activity indicator defaults to `.medium` style on iOS > 13.0 and can be configured through `activityIndicator` public property.
+- Min iOS version `9.0`
+
+
 ## [5.0.1](https://github.com/APUtils/APButton/releases/tag/5.0.1)
 Released on 12/30/2018.
 

@@ -119,6 +119,12 @@ public class APButton: UIButton {
                 let duration = isHighlighted ? highightDuration : 0.3
                 
                 if duration > 0 {
+                    
+                    // We need to commit all existing changes before animation or it might looks weird.
+                    UIView.performWithoutAnimation {
+                        layoutIfNeeded()
+                    }
+                    
                     let options: UIView.AnimationOptions = [.beginFromCurrentState, .allowUserInteraction, .curveLinear]
                     UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                         changes(true)
@@ -138,7 +144,15 @@ public class APButton: UIButton {
     
     private var _dependentViews = NSHashTable<UIView>(options: [.weakMemory])
     private var animatingViewsOriginalAlphas = [UIView: CGFloat]()
-    private let activityIndicator = UIActivityIndicatorView(style: .gray)
+    
+    private(set) public lazy var activityIndicator: UIActivityIndicatorView = {
+        if #available(iOS 13.0, *) {
+            return UIActivityIndicatorView(style: .medium)
+        } else {
+            return UIActivityIndicatorView(style: .gray)
+        }
+    }()
+    
     private let overlayView = UIView()
     private var defaultBorderColor: CGColor?
     private var isMadeBorderDisabled = false
@@ -336,6 +350,9 @@ public class APButton: UIButton {
         } else {
             changes()
         }
+        
+        // Overlay should be on top
+        bringSubviewToFront(overlayView)
     }
     
     //-----------------------------------------------------------------------------
