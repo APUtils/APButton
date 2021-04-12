@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 /// Executes a closure if already in main or dispatch asyn in main. Uses GCD.
 /// - parameters:

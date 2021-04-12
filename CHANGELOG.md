@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [6.0.1](https://github.com/APUtils/APButton/releases/tag/6.0.1)
+Released on 04/12/2021.
+
+#### Added
+- SPM support
+
+#### Fixed
+- tvOS build
+
+
 ## [6.0.0](https://github.com/APUtils/APButton/releases/tag/6.0.0)
 Released on 04/12/2021.
 

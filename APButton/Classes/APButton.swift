@@ -146,10 +146,14 @@ public class APButton: UIButton {
     private var animatingViewsOriginalAlphas = [UIView: CGFloat]()
     
     private(set) public lazy var activityIndicator: UIActivityIndicatorView = {
-        if #available(iOS 13.0, *) {
+        if #available(tvOS 13.0, iOS 13.0, *) {
             return UIActivityIndicatorView(style: .medium)
         } else {
+            #if os(tvOS)
+            return UIActivityIndicatorView(style: .white)
+            #else
             return UIActivityIndicatorView(style: .gray)
+            #endif
         }
     }()
     

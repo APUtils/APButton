@@ -85,6 +85,7 @@
 /* Begin PBXFileReference section */
 		0491600AEA500A849511DBA7 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSnapshotTestCase.framework; path = Carthage/Build/iOS/FBSnapshotTestCase.framework; sourceTree = "<group>"; };
 		0D59C20A2624DA5B0073C456 /* RoutableLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RoutableLogger.framework; path = ../Carthage/Build/iOS/RoutableLogger.framework; sourceTree = "<group>"; };
+		0D59C20E2624E19D0073C456 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		0DBC7CE923B9587900CD0EA1 /* APButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 		0DBC7CEA23B9587900CD0EA1 /* UIView+APButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+APButton.swift"; sourceTree = "<group>"; };
 		0DBC7CEB23B9587900CD0EA1 /* UILabel+APButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+APButton.swift"; sourceTree = "<group>"; };
@@ -244,6 +245,7 @@
 				9504694D5A39F0E264B48C3D /* .cocoadocs.yml */,
 				905B31DDA8E8FD67FB158C0A /* .travis.yml */,
 				DEE173FAC5E5EFAD08789068 /* APButton.podspec */,
+				0D59C20E2624E19D0073C456 /* Package.swift */,
 				F3CCA0C1534E75B9AEABDD5E /* LICENSE */,
 				22063C0929EBC096903CE867 /* DEPLOY PROCESS.md */,
 				A15E0640B8AD6213416008F2 /* CHANGELOG.md */,
