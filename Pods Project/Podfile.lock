@@ -1,14 +1,15 @@
 PODS:
   - APButton (6.0.1)
-  - APExtensions (10.0.0):
-    - APExtensions/Core (= 10.0.0)
-    - APExtensions/Storyboard (= 10.0.0)
-    - APExtensions/ViewConfiguration (= 10.0.0)
-  - APExtensions/Core (10.0.0):
-    - LogsManager/RoutableLogger (>= 9.1.5)
-  - APExtensions/Storyboard (10.0.0)
-  - APExtensions/ViewConfiguration (10.0.0)
-  - LogsManager/RoutableLogger (9.1.5)
+  - APExtensions (13.0.0):
+    - APExtensions/Core (= 13.0.0)
+    - APExtensions/Storyboard (= 13.0.0)
+    - APExtensions/ViewModel (= 13.0.0)
+  - APExtensions/Core (13.0.0):
+    - RoutableLogger
+  - APExtensions/Storyboard (13.0.0):
+    - RoutableLogger
+  - APExtensions/ViewModel (13.0.0)
+  - RoutableLogger (12.3.3)
 
 DEPENDENCIES:
   - APButton (from `../`)
@@ -16,7 +17,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - LogsManager
+    - RoutableLogger
 
 EXTERNAL SOURCES:
   APButton:
@@ -26,14 +27,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   APExtensions:
-    :commit: ae784925e948a39dbc9d521e538a32bef9544936
+    :commit: 0df8fec0573d0e1d1f7e58ead82fbe77f327475d
     :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
   APButton: 906b505e8a53df1f9ef989ed8b48ee616b6d61e7
-  APExtensions: b46cab78fe5d291e1157838fd78962a886e627df
-  LogsManager: e821cea87e608e96cf39a68009d830579098a2cb
+  APExtensions: 4e17c50e62683a4ef4090a515615bc6b9edb13b6
+  RoutableLogger: ff5425f9ec26ec79241a591a1ed16a7a69d70b2f
 
-PODFILE CHECKSUM: ad8ef343270a7748f448e7dec12ae497539fe099
+PODFILE CHECKSUM: 298b15813291305a681e56ac2076463310d27a6a
 
 COCOAPODS: 1.12.1
