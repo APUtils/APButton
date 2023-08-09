@@ -9,11 +9,8 @@
 import UIKit
 import QuartzCore
 
-
 let g_ButtonHighlightAlphaCoef: CGFloat = 0.2
 
-
-// TODO: Add accessibility support by grouping info from dependent views (mostly labels i guess).
 public class APButton: UIButton {
     
     //-----------------------------------------------------------------------------
@@ -55,6 +52,30 @@ public class APButton: UIButton {
     
     /// Button loading counter
     public private(set) var loadingCounter = 0
+    
+    public override var accessibilityIdentifier: String? {
+        get {
+            if let accessibilityIdentifier = super.accessibilityIdentifier {
+                return accessibilityIdentifier
+            } else {
+                let accessibilityIdentifier = _dependentViews
+                    .allObjects
+                    .compactMap { $0.accessibilityIdentifier }
+                    .first
+                ?? _dependentViews
+                    .allObjects
+                    .compactMap { ($0 as? UILabel)?.text }
+                    .first
+                
+                super.accessibilityIdentifier = accessibilityIdentifier
+                
+                return accessibilityIdentifier
+            }
+        }
+        set {
+            super.accessibilityIdentifier = newValue
+        }
+    }
     
     /// Action that will be performed on button tap
     public var action: Action? {
@@ -146,20 +167,31 @@ public class APButton: UIButton {
     private var animatingViewsOriginalAlphas = [UIView: CGFloat]()
     
     private(set) public lazy var activityIndicator: UIActivityIndicatorView = {
+        let ai: UIActivityIndicatorView
         if #available(tvOS 13.0, iOS 13.0, *) {
-            return UIActivityIndicatorView(style: .medium)
+            ai = UIActivityIndicatorView(style: .medium)
         } else {
-            #if os(tvOS)
-            return UIActivityIndicatorView(style: .white)
-            #else
-            return UIActivityIndicatorView(style: .gray)
-            #endif
+#if os(tvOS)
+            ai = UIActivityIndicatorView(style: .white)
+#else
+            ai = UIActivityIndicatorView(style: .gray)
+#endif
         }
+        
+        ai.isHidden = true
+        ai.hidesWhenStopped = true
+        ai.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
+        
+        return ai
     }()
     
     private lazy var overlayView: UIView = {
         let ov = UIView()
         ov.accessibilityIdentifier = "overlayView"
+        ov.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        ov.backgroundColor = overlayColor
+        ov.alpha = 0
+        ov.isUserInteractionEnabled = false
         
         return ov
     }()
@@ -225,17 +257,9 @@ public class APButton: UIButton {
         
         addSubview(overlayView)
         overlayView.frame = bounds
-        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        overlayView.backgroundColor = overlayColor
-        overlayView.alpha = 0
-        overlayView.isUserInteractionEnabled = false
         
         addSubview(activityIndicator)
-        activityIndicator.isHidden = true
-        activityIndicator.hidesWhenStopped = true
         activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
-        let msk: UIView.AutoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
-        activityIndicator.autoresizingMask = msk
     }
     
     //-----------------------------------------------------------------------------

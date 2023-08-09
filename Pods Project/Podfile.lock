@@ -1,5 +1,5 @@
 PODS:
-  - APButton (6.0.0)
+  - APButton (6.0.1)
   - APExtensions (10.0.0):
     - APExtensions/Core (= 10.0.0)
     - APExtensions/Storyboard (= 10.0.0)
@@ -30,10 +30,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
-  APButton: 4eb4db7b8e78d1795f4a11dfbbd2752b55cbb249
+  APButton: 906b505e8a53df1f9ef989ed8b48ee616b6d61e7
   APExtensions: b46cab78fe5d291e1157838fd78962a886e627df
   LogsManager: e821cea87e608e96cf39a68009d830579098a2cb
 
 PODFILE CHECKSUM: ad8ef343270a7748f448e7dec12ae497539fe099
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.1
