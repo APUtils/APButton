@@ -57,6 +57,7 @@ public class APButton: UIButton {
         get {
             if let accessibilityIdentifier = super.accessibilityIdentifier {
                 return accessibilityIdentifier
+                
             } else if title(for: .normal)?.isEmpty != false {
                 let accessibilityIdentifier = _dependentViews
                     .allObjects
@@ -68,6 +69,9 @@ public class APButton: UIButton {
                     .first
                 
                 return accessibilityIdentifier
+                
+            } else {
+                return nil
             }
         }
         set {
