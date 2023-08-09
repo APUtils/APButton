@@ -57,17 +57,15 @@ public class APButton: UIButton {
         get {
             if let accessibilityIdentifier = super.accessibilityIdentifier {
                 return accessibilityIdentifier
-            } else {
+            } else if title(for: .normal)?.isEmpty != false {
                 let accessibilityIdentifier = _dependentViews
-                    .allObjects
-                    .compactMap { $0.accessibilityIdentifier }
-                    .first
-                ?? _dependentViews
                     .allObjects
                     .compactMap { ($0 as? UILabel)?.text }
                     .first
-                
-                super.accessibilityIdentifier = accessibilityIdentifier
+                ?? _dependentViews
+                    .allObjects
+                    .compactMap { $0.accessibilityIdentifier }
+                    .first
                 
                 return accessibilityIdentifier
             }
