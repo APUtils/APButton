@@ -232,7 +232,7 @@ public class APButton: UIButton {
         dependentViews = nil
         
         // Set `accessibilityIdentifier` from dependent views if needed
-        if accessibilityIdentifier == nil && title(for: .normal)?.isEmpty != false {
+        if accessibilityIdentifier == nil {
             accessibilityIdentifier = _dependentViews
                 .allObjects
                 .compactMap { $0.accessibilityIdentifier }
