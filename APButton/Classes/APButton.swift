@@ -53,6 +53,30 @@ public class APButton: UIButton {
     /// Button loading counter
     public private(set) var loadingCounter = 0
     
+    public override var accessibilityIdentifier: String? {
+        get {
+            if let accessibilityIdentifier = super.accessibilityIdentifier {
+                return accessibilityIdentifier
+            } else {
+                let accessibilityIdentifier = _dependentViews
+                    .allObjects
+                    .compactMap { $0.accessibilityIdentifier }
+                    .first
+                ?? _dependentViews
+                    .allObjects
+                    .compactMap { ($0 as? UILabel)?.text }
+                    .first
+                
+                super.accessibilityIdentifier = accessibilityIdentifier
+                
+                return accessibilityIdentifier
+            }
+        }
+        set {
+            super.accessibilityIdentifier = newValue
+        }
+    }
+    
     /// Action that will be performed on button tap
     public var action: Action? {
         didSet {
@@ -230,18 +254,6 @@ public class APButton: UIButton {
         
         dependentViews?.forEach({ _dependentViews.add($0) })
         dependentViews = nil
-        
-        // Set `accessibilityIdentifier` from dependent views if needed
-        if accessibilityIdentifier == nil {
-            accessibilityIdentifier = _dependentViews
-                .allObjects
-                .compactMap { $0.accessibilityIdentifier }
-                .first
-            ?? _dependentViews
-                .allObjects
-                .compactMap { ($0 as? UILabel)?.text }
-                .first
-        }
         
         addSubview(overlayView)
         overlayView.frame = bounds
