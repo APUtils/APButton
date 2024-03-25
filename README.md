@@ -25,20 +25,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-#### Carthage
-
-**If you are setting `APButton` class in storyboard assure module field is also `APButton`**
-
-<img src="Example/APButton/customClass.png"/>
-
-Please check [official guide](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos)
-
-Cartfile:
-
-```
-github "APUtils/APButton"
-```
-
 #### CocoaPods
 
 APButton is available through [CocoaPods](http://cocoapods.org). To install

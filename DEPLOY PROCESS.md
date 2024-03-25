@@ -1,7 +1,4 @@
-- Assure `Carthage Project/APButton.xcodeproj` and `Pods Project/APButton.xcworkspace` have all dependencies added.
-- Check all playground cases to be sure everything works correctly.
 - Run `podUpdate.command`
-- Run `carthageUpdate.command`
 - Run `checkBuild.command`
 - Change version in podspec
 - Update CHANGELOG.md
