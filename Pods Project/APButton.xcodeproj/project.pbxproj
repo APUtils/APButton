@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,10 @@
 		7BF0953048A1D84A72625BA7 /* Pods_APButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90293CD66213801A415364D9 /* Pods-APButton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Example.release.xcconfig"; path = "Target Support Files/Pods-APButton_Example/Pods-APButton_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AC8D96427D77EBA75FE40283 /* Pods-APButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APButton_Example.debug.xcconfig"; path = "Target Support Files/Pods-APButton_Example/Pods-APButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E2674BED2BB15A4400EA7219 /* APButton.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = APButton.podspec; path = ../APButton.podspec; sourceTree = "<group>"; };
+		E2674BEE2BB15A6100EA7219 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = "DEPLOY PROCESS.md"; path = "../DEPLOY PROCESS.md"; sourceTree = "<group>"; };
+		E2674BF12BB15AC200EA7219 /* checkBuild.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = checkBuild.command; path = ../checkBuild.command; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,10 @@
 		607FACF51AFB993E008FA782 /* _ */ = {
 			isa = PBXGroup;
 			children = (
+				E2674BED2BB15A4400EA7219 /* APButton.podspec */,
+				E2674BEE2BB15A6100EA7219 /* CHANGELOG.md */,
+				E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */,
+				E2674BF12BB15AC200EA7219 /* checkBuild.command */,
 			);
 			name = _;
 			sourceTree = "<group>";
@@ -151,7 +159,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
