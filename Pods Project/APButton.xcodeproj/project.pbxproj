@@ -119,9 +119,9 @@
 				E2674BEE2BB15A6100EA7219 /* CHANGELOG.md */,
 				E2674BF12BB15AC200EA7219 /* checkBuild.command */,
 				E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */,
-				E2674C012BB16A1400EA7219 /* README.md */,
 				E2674BF22BB1648600EA7219 /* Package.swift */,
 				E2674BF32BB164B400EA7219 /* packageUpdate.command */,
+				E2674C012BB16A1400EA7219 /* README.md */,
 			);
 			name = _;
 			sourceTree = "<group>";
