@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'APButton'
-  s.version          = '6.0.1'
+  s.version          = '6.0.2'
   s.summary          = 'Button with ability to show loading indicator and animate depended views.'
 
 # This description is used to generate tags and improve search results.
@@ -33,13 +33,8 @@ Button with ability to show loading indicator and animate depended views accordi
   s.swift_versions = ['5.1']
 
   s.source_files = 'APButton/Classes/**/*'
-  s.resource_bundle = {"APButton.privacy"=>"APButton/Privacy/PrivacyInfo.xcprivacy"}
-  
-  # s.resource_bundles = {
-  #   'APButton' => ['APButton/Assets/*.png']
-  # }
+  s.resource_bundles = { 'APButton.privacy' => ['APButton/Privacy/PrivacyInfo.xcprivacy'] }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
