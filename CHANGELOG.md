@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
 ## [6.0.2](https://github.com/APUtils/APButton/releases/tag/6.0.2)
-Released on 04/12/2021.
+Released on 2024-03-25.
 
 #### Added
 - Compute accessibility identifier from dependant views if needed
