@@ -33,7 +33,7 @@ Button with ability to show loading indicator and animate depended views accordi
   s.swift_versions = ['5.1']
 
   s.source_files = 'APButton/Classes/**/*'
-  s.resource_bundle = {"APButton.privacy"=>"Pod/Privacy/APButton/PrivacyInfo.xcprivacy"}
+  s.resource_bundle = {"APButton.privacy"=>"APButton/Privacy/PrivacyInfo.xcprivacy"}
   
   # s.resource_bundles = {
   #   'APButton' => ['APButton/Assets/*.png']

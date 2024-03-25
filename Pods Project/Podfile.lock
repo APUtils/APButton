@@ -38,7 +38,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
-  APButton: a78fc1655fd49f47d24ada2d3d140694e0396627
+  APButton: 3d066edc5860286bb849f90ba286d2c54bc6b9fb
   APExtensions: 82b84786551a31361dcdf7827ce28aeb3361fe3e
   RoutableLogger: ff5425f9ec26ec79241a591a1ed16a7a69d70b2f
 
