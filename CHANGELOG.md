@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 `APButton` adheres to [Semantic Versioning](http://semver.org/).
 
+## [6.0.2](https://github.com/APUtils/APButton/releases/tag/6.0.2)
+Released on 04/12/2021.
+
+#### Added
+- Compute accessibility identifier from dependant views if needed
+- `PrivacyInfo.xcprivacy` resource
+
+#### Changed
+- iOS 11.0 - min
+
 
 ## [6.0.1](https://github.com/APUtils/APButton/releases/tag/6.0.1)
 Released on 04/12/2021.
