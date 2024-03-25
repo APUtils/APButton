@@ -1,4 +1,5 @@
 - Run `podUpdate.command`
+- Run `packageUpdate.command`
 - Run `checkBuild.command`
 - Change version in podspec
 - Update CHANGELOG.md
