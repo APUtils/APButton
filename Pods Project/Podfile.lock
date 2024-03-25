@@ -1,5 +1,5 @@
 PODS:
-  - APButton (6.0.1)
+  - APButton (6.0.2)
   - APExtensions (14.1.1):
     - APExtensions/Core (= 14.1.1)
     - APExtensions/Dispatch (= 14.1.1)
@@ -38,7 +38,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/APUtils/APExtensions
 
 SPEC CHECKSUMS:
-  APButton: 3d066edc5860286bb849f90ba286d2c54bc6b9fb
+  APButton: 6ec8669583e42bb298ab7111de839539aeefbadd
   APExtensions: 82b84786551a31361dcdf7827ce28aeb3361fe3e
   RoutableLogger: ff5425f9ec26ec79241a591a1ed16a7a69d70b2f
 
