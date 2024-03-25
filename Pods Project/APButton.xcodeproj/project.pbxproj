@@ -13,7 +13,18 @@
 		0DBC7CE623B9555B00CD0EA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		87C26A94B256009443787CAF /* Pods_APButton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF0953048A1D84A72625BA7 /* Pods_APButton_Example.framework */; };
+		E2674BFB2BB1697800EA7219 /* APButton_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2674BFA2BB1697800EA7219 /* APButton_ExampleTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2674BFC2BB1697800EA7219 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = APButton_Example;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0D47705623B79E79005209A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +41,11 @@
 		E2674BEE2BB15A6100EA7219 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = "DEPLOY PROCESS.md"; path = "../DEPLOY PROCESS.md"; sourceTree = "<group>"; };
 		E2674BF12BB15AC200EA7219 /* checkBuild.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = checkBuild.command; path = ../checkBuild.command; sourceTree = "<group>"; };
+		E2674BF22BB1648600EA7219 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		E2674BF32BB164B400EA7219 /* packageUpdate.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = packageUpdate.command; path = ../packageUpdate.command; sourceTree = "<group>"; };
+		E2674BF82BB1697800EA7219 /* APButton_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APButton_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2674BFA2BB1697800EA7219 /* APButton_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton_ExampleTests.swift; sourceTree = "<group>"; };
+		E2674C012BB16A1400EA7219 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +57,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E2674BF52BB1697800EA7219 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -49,6 +72,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* _ */,
 				607FACD21AFB9204008FA782 /* Example for APButton */,
+				E2674BF92BB1697800EA7219 /* APButton_ExampleTests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				64D2E85A4C997F992D961413 /* Pods */,
 				9AE3E1047A8F12D38DFD6B63 /* Frameworks */,
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* APButton_Example.app */,
+				E2674BF82BB1697800EA7219 /* APButton_ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,8 +117,11 @@
 			children = (
 				E2674BED2BB15A4400EA7219 /* APButton.podspec */,
 				E2674BEE2BB15A6100EA7219 /* CHANGELOG.md */,
-				E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */,
 				E2674BF12BB15AC200EA7219 /* checkBuild.command */,
+				E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */,
+				E2674C012BB16A1400EA7219 /* README.md */,
+				E2674BF22BB1648600EA7219 /* Package.swift */,
+				E2674BF32BB164B400EA7219 /* packageUpdate.command */,
 			);
 			name = _;
 			sourceTree = "<group>";
@@ -129,6 +157,14 @@
 			name = _Gifs;
 			sourceTree = "<group>";
 		};
+		E2674BF92BB1697800EA7219 /* APButton_ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2674BFA2BB1697800EA7219 /* APButton_ExampleTests.swift */,
+			);
+			path = APButton_ExampleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +187,24 @@
 			productReference = 607FACD01AFB9204008FA782 /* APButton_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E2674BF72BB1697800EA7219 /* APButton_ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2674BFE2BB1697800EA7219 /* Build configuration list for PBXNativeTarget "APButton_ExampleTests" */;
+			buildPhases = (
+				E2674BF42BB1697800EA7219 /* Sources */,
+				E2674BF52BB1697800EA7219 /* Frameworks */,
+				E2674BF62BB1697800EA7219 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2674BFD2BB1697800EA7219 /* PBXTargetDependency */,
+			);
+			name = APButton_ExampleTests;
+			productName = APButton_ExampleTests;
+			productReference = E2674BF82BB1697800EA7219 /* APButton_ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -158,13 +212,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 0720;
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0820;
+					};
+					E2674BF72BB1697800EA7219 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -182,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* APButton_Example */,
+				E2674BF72BB1697800EA7219 /* APButton_ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,6 +254,13 @@
 				0DBC7CE323B954FD00CD0EA1 /* Images.xcassets in Resources */,
 				0D47705723B79E79005209A5 /* LaunchScreen.storyboard in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2674BF62BB1697800EA7219 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +323,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E2674BF42BB1697800EA7219 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2674BFB2BB1697800EA7219 /* APButton_ExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2674BFD2BB1697800EA7219 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* APButton_Example */;
+			targetProxy = E2674BFC2BB1697800EA7219 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D47705523B79E79005209A5 /* LaunchScreen.storyboard */ = {
@@ -420,6 +503,37 @@
 			};
 			name = Release;
 		};
+		E2674BFF2BB1697800EA7219 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anton-plebanovich.APButton-ExampleTests.APButton-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APButton_Example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)APButton_Example";
+			};
+			name = Debug;
+		};
+		E2674C002BB1697800EA7219 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anton-plebanovich.APButton-ExampleTests.APButton-ExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APButton_Example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)APButton_Example";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -437,6 +551,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2674BFE2BB1697800EA7219 /* Build configuration list for PBXNativeTarget "APButton_ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2674BFF2BB1697800EA7219 /* Debug */,
+				E2674C002BB1697800EA7219 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

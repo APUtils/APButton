@@ -37,6 +37,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E2674BF72BB1697800EA7219"
+               BuildableName = "APButton_ExampleTests.xctest"
+               BlueprintName = "APButton_ExampleTests"
+               ReferencedContainer = "container:APButton.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
