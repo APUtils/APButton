@@ -30,7 +30,12 @@ Button with ability to show loading indicator and animate depended views accordi
 
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '9.0'
-  s.swift_versions = ['5.1']
+  s.swift_versions = ['5']
+  
+  # 1.12.0: Ensure developers won't hit CocoaPods/CocoaPods#11402 with the resource
+  # bundle for the privacy manifest.
+  # 1.13.0: visionOS is recognized as a platform.
+  s.cocoapods_version = '>= 1.13.0'
 
   s.source_files = 'APButton/Classes/**/*'
   s.resource_bundles = { 'APButton.privacy' => ['APButton/Privacy/PrivacyInfo.xcprivacy'] }
