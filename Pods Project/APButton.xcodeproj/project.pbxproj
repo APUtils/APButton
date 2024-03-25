@@ -46,6 +46,8 @@
 		E2674BF82BB1697800EA7219 /* APButton_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APButton_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2674BFA2BB1697800EA7219 /* APButton_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton_ExampleTests.swift; sourceTree = "<group>"; };
 		E2674C012BB16A1400EA7219 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E2674C022BB16B7700EA7219 /* podPush.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = podPush.command; path = ../podPush.command; sourceTree = "<group>"; };
+		E2674C032BB16B7700EA7219 /* podCheck.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = podCheck.command; path = ../podCheck.command; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,8 @@
 				E2674BEF2BB15A6700EA7219 /* DEPLOY PROCESS.md */,
 				E2674BF22BB1648600EA7219 /* Package.swift */,
 				E2674BF32BB164B400EA7219 /* packageUpdate.command */,
+				E2674C032BB16B7700EA7219 /* podCheck.command */,
+				E2674C022BB16B7700EA7219 /* podPush.command */,
 				E2674C012BB16A1400EA7219 /* README.md */,
 			);
 			name = _;
