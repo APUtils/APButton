@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "APButton",
     platforms: [
-        .iOS(.v11),
-        .tvOS(.v11),
+        .iOS(.v12),
+        .tvOS(.v12),
     ],
     products: [
         .library(
@@ -20,7 +20,12 @@ let package = Package(
         .target(
             name: "APButton",
             dependencies: [],
-            path: "APButton/Classes",
-            exclude: []),
+            path: "APButton",
+            exclude: [],
+            sources: ["Classes"],
+            resources: [
+                .process("Privacy/PrivacyInfo.xcprivacy")
+            ]
+        ),
     ]
 )
