@@ -343,13 +343,26 @@ public class APButton: UIButton {
     private func configureEnabledForBorder() {
         if isEnabled {
             if isMadeBorderDisabled {
-                layer.borderColor = titleColor(for: .normal)?.cgColor
+                if #available(iOS 13.0, *) {
+                    layer.borderColor = titleColor(for: .normal)?.resolvedColor(with: traitCollection).cgColor
+                } else {
+                    layer.borderColor = titleColor(for: .normal)?.cgColor
+                }
                 isMadeBorderDisabled = false
             }
         } else {
-            let titleNormalColor = titleColor(for: .normal)?.cgColor
+            let titleNormalColor: CGColor?
+            if #available(iOS 13.0, *) {
+                titleNormalColor = titleColor(for: .normal)?.resolvedColor(with: traitCollection).cgColor
+            } else {
+                titleNormalColor = titleColor(for: .normal)?.cgColor
+            }
             if layer.borderColor == titleNormalColor {
-                layer.borderColor = titleColor(for: .disabled)?.cgColor
+                if #available(iOS 13.0, *) {
+                    layer.borderColor = titleColor(for: .disabled)?.resolvedColor(with: traitCollection).cgColor
+                } else {
+                    layer.borderColor = titleColor(for: .disabled)?.cgColor
+                }
                 isMadeBorderDisabled = true
             }
         }
