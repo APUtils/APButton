@@ -182,10 +182,13 @@ public class APButton: UIButton {
         
         ai.isHidden = true
         ai.hidesWhenStopped = true
-        ai.autoresizingMask = [.flexibleBottomMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
+        ai.translatesAutoresizingMaskIntoConstraints = false
         
         return ai
     }()
+    
+    private lazy var activityIndicatorX = activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor)
+    private lazy var activityIndicatorY = activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
     
     private lazy var overlayView: UIView = {
         let ov = UIView()
@@ -261,7 +264,10 @@ public class APButton: UIButton {
         overlayView.frame = bounds
         
         addSubview(activityIndicator)
-        activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
+        NSLayoutConstraint.activate([
+            activityIndicatorX,
+            activityIndicatorY,
+        ])
     }
     
     //-----------------------------------------------------------------------------
@@ -381,6 +387,24 @@ public class APButton: UIButton {
         
         if rounded {
             layer.cornerRadius = min(bounds.size.width, bounds.size.height) / 2
+        }
+        
+        if #available(iOS 13.0, *) {
+            if bounds.width > 50 && bounds.height > 50 {
+                if activityIndicator.style != .large {
+                    // Activity indicator is 2 points larger that it should so fixing manually 🦀
+                    activityIndicator.style = .large
+                    activityIndicatorX.constant = 1
+                    activityIndicatorY.constant = 1
+                }
+                
+            } else {
+                if activityIndicator.style != .medium {
+                    activityIndicator.style = .medium
+                    activityIndicatorX.constant = 0
+                    activityIndicatorY.constant = 0
+                }
+            }
         }
         
         configureTitleAndImageView()
