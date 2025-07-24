@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'APButton'
-  s.version          = '6.0.2'
+  s.version          = '7.0.0'
   s.summary          = 'Button with ability to show loading indicator and animate depended views.'
 
 # This description is used to generate tags and improve search results.
@@ -28,9 +28,8 @@ Button with ability to show loading indicator and animate depended views accordi
   s.source           = { :git => 'https://github.com/APUtils/APButton.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
-  s.tvos.deployment_target = '9.0'
-  s.swift_versions = ['5']
+  s.ios.deployment_target = '11.0'
+  s.tvos.deployment_target = '11.0'
   
   # 1.12.0: Ensure developers won't hit CocoaPods/CocoaPods#11402 with the resource
   # bundle for the privacy manifest.
