@@ -180,6 +180,12 @@ public class APButton: UIButton {
 #endif
         }
         
+        ai.accessibilityIdentifier = if let accessibilityIdentifier {
+            "\(accessibilityIdentifier)_activityIndicator"
+        } else {
+            "activityIndicator"
+        }
+        
         ai.isHidden = true
         ai.hidesWhenStopped = true
         ai.translatesAutoresizingMaskIntoConstraints = false
@@ -192,7 +198,13 @@ public class APButton: UIButton {
     
     private lazy var overlayView: UIView = {
         let ov = UIView()
-        ov.accessibilityIdentifier = "overlayView"
+        
+        ov.accessibilityIdentifier = if let accessibilityIdentifier {
+            "\(accessibilityIdentifier)_overlayView"
+        } else {
+            "overlayView"
+        }
+        
         ov.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         ov.backgroundColor = overlayColor
         ov.alpha = 0
@@ -205,12 +217,18 @@ public class APButton: UIButton {
     private var isMadeBorderDisabled = false
     
     private lazy var progressView: UIView = {
-        let progressView = UIView()
-        progressView.backgroundColor = progressColor
-        progressView.isUserInteractionEnabled = false
-        progressView.accessibilityIdentifier = "progressView"
+        let pv = UIView()
         
-        return progressView
+        pv.accessibilityIdentifier = if let accessibilityIdentifier {
+            "\(accessibilityIdentifier)_progressView"
+        } else {
+            "progressView"
+        }
+        
+        pv.backgroundColor = progressColor
+        pv.isUserInteractionEnabled = false
+        
+        return pv
     }()
     
     //-----------------------------------------------------------------------------
